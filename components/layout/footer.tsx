@@ -85,19 +85,19 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#faq" className="hover:text-brand-600 transition-colors">
-                  Non-Veterinary Disclaimer
-                </a>
+                <Link href="/ai-disclaimer" className="text-stone-500 hover:text-brand-600 transition-colors">
+                  AI Disclaimer & Methodology
+                </Link>
               </li>
               <li>
-                <span className="text-stone-500 hover:text-stone-900 cursor-pointer">
+                <Link href="/privacy" className="text-stone-500 hover:text-brand-600 transition-colors">
                   Privacy Policy
-                </span>
+                </Link>
               </li>
               <li>
-                <span className="text-stone-500 hover:text-stone-900 cursor-pointer">
+                <Link href="/terms" className="text-stone-500 hover:text-brand-600 transition-colors">
                   Terms of Service
-                </span>
+                </Link>
               </li>
             </ul>
           </div>

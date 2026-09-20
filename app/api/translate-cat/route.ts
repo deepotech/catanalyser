@@ -3,6 +3,7 @@ import { getCatTranslatorProvider, TranslatorContext } from "@/lib/ai/translator
 import { getRateLimiter } from "@/lib/security/rate-limiter";
 import { AudioFeatureExtractor } from "@/lib/audio/feature-extractor";
 import { siteConfig } from "@/lib/config/site";
+import { ProductionMonitor } from "@/lib/observability/monitor";
 
 const ALLOWED_AUDIO_MIME_TYPES = [
   "audio/webm",
@@ -142,6 +143,8 @@ export async function POST(request: NextRequest) {
     const rawFileName = "name" in file && typeof file.name === "string" ? file.name : "cat-sound.webm";
     const sanitizedFileName = rawFileName.replace(/[^a-zA-Z0-9._-]/g, "");
 
+    const startTime = Date.now();
+
     // 6. Invoke Server-Side AI Translator Provider
     const provider = getCatTranslatorProvider();
     const result = await provider.analyzeCatSound({
@@ -153,6 +156,14 @@ export async function POST(request: NextRequest) {
       audioDurationSeconds: durationSeconds,
     });
 
+    const durationMs = Date.now() - startTime;
+    ProductionMonitor.logEvent("info", "Cat sound analysis completed successfully", {
+      endpoint: "/api/translate-cat",
+      provider: provider.name,
+      durationMs,
+      httpStatus: 200,
+    });
+
     return NextResponse.json(result, {
       status: 200,
       headers: {
@@ -160,18 +171,17 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error: unknown) {
-    console.error("[API Translate Cat Error]:", error);
-    const message =
-      error instanceof Error
-        ? error.message
-        : "An unexpected error occurred while analyzing the audio. Please try again.";
+    const { userMessage, httpStatus } = ProductionMonitor.captureError(error, {
+      endpoint: "/api/translate-cat",
+      httpStatus: 500,
+    });
 
     return NextResponse.json(
       {
-        error: message,
+        error: userMessage,
         status: "error",
       },
-      { status: 500 }
+      { status: httpStatus }
     );
   }
 }

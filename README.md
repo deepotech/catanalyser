@@ -1,89 +1,123 @@
-# CatAnalyzer.com — AI Cat Platform ("Understand Your Cat")
+# CatAnalyzer.com — Production AI Cat Intelligence Platform
 
-CatAnalyzer is a production-ready AI pet platform built to help owners understand their cats through phenotypic breed identification and bioacoustic sound interpretation.
-
-## Phase 1 Architecture Overview
-
-This codebase implements **Phase 1** of the CatAnalyzer Master Roadmap:
-- **Framework**: Next.js 15 (App Router) + React 19 + TypeScript
-- **Styling**: Tailwind CSS with custom design system tokens
-- **AI Abstraction Layer**: Decoupled interface (`lib/ai/breed/` and `lib/ai/translator/`) separating UI from AI models, featuring a realistic Development Mock Provider.
-- **Data Layer**: Structured breed taxonomy (`lib/data/breeds.ts`) and verified FAQs (`lib/data/faq.ts`).
-- **SEO & Structured Data**: Dynamic `sitemap.ts`, `robots.ts`, OpenGraph metadata, and JSON-LD (`WebSite`, `WebApplication`, `FAQPage`).
+CatAnalyzer is a production-grade AI platform designed to help pet owners understand their cats through transparent, science-grounded phenotypic breed identification and bioacoustic sound interpretation.
 
 ---
 
-## Getting Started
+## 1. Architectural Highlights
 
-### 1. Install Dependencies
+- **Framework**: Next.js 15 (App Router) + React 19 + TypeScript (Strict Mode)
+- **Styling**: Tailwind CSS + Lucide Icons + Custom Brand Design Tokens
+- **AI Engine Layer**: Pluggable server-side architecture supporting **OpenRouter**, **Google Gemini**, and offline development **Mock**.
+- **Security & Privacy**:
+  - Zero application disk retention of uploaded photos or audio.
+  - MIME type and binary magic-byte verification (`FF D8 FF` for JPEG, `89 50 4E 47` for PNG, `RIFF...WEBP` for WebP, and audio RIFF/ID3 headers).
+  - Strict Content-Security-Policy, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, and restricted `Permissions-Policy`.
+- **Distributed Rate Limiting**:
+  - Production-ready Upstash Redis REST pipeline adapter.
+  - Automatic graceful fallback to sliding-window in-memory limiter with honest degraded status reporting.
+- **Observability**:
+  - Sanitized structured JSON telemetry (zero leakage of media buffers, user prompts, or secrets).
+  - Standardized error categorization (timeouts, quota, auth, validation).
+- **SEO & Organic Growth**:
+  - Complete 16-breed directory (`/cat-breeds`) with visual trait checklists, grooming guides, and Schema.org `FAQPage` / `CollectionPage`.
+  - Side-by-side comparison hub (`/compare`) with 10 high-intent curated comparison pairs.
+  - Dynamic `sitemap.xml` and `robots.txt` blocking `/api/`.
+
+---
+
+## 2. Environment Variables & Configuration
+
+Configure `.env.local` for local execution. In production (e.g. Vercel), set these in the dashboard:
+
+| Variable Name | Required? | Allowed Values / Purpose |
+|---|---|---|
+| `NODE_ENV` | Yes | `development`, `test`, `production` |
+| `AI_PROVIDER` | Yes | `openrouter`, `gemini`, or `mock` (prod requires real provider) |
+| `OPENROUTER_API_KEY` | If openrouter | Server-side API key from https://openrouter.ai/keys |
+| `OPENROUTER_MODEL` | Optional | Default: `google/gemini-2.5-flash` |
+| `GEMINI_API_KEY` | If gemini | Server-side API key from Google AI Studio |
+| `GEMINI_MODEL` | Optional | Default: `gemini-2.5-flash` |
+| `UPSTASH_REDIS_REST_URL`| Optional | Upstash Redis REST URL (enables multi-instance distributed rate limiting) |
+| `UPSTASH_REDIS_REST_TOKEN`| Optional | Upstash Redis REST Token |
+| `NEXT_PUBLIC_SITE_URL` | Optional | Canonical URL (e.g. `https://catanalyzer.com`) |
+| `AI_MAX_IMAGE_MB` | Optional | Default: `10` |
+| `AI_MAX_AUDIO_MB` | Optional | Default: `10` |
+| `AI_MAX_AUDIO_SECONDS` | Optional | Default: `15` |
+| `AI_REQUEST_TIMEOUT_MS`| Optional | Default: `20000` |
+| `RATE_LIMIT_MAX_REQUESTS`| Optional | Default: `10` |
+| `RATE_LIMIT_WINDOW_SECONDS`| Optional | Default: `60` |
+
+---
+
+## 3. Provider Switching & Safety Guardrails
+
+Provider resolution is strictly **server-side**:
+
+```
+Client Request
+      ↓
+/api/identify-breed or /api/translate-cat
+      ↓
+Rate Limiter Check (Upstash Redis or In-Memory fallback)
+      ↓
+Size & Magic Byte Validation
+      ↓
+AI Provider Factory (Reads AI_PROVIDER)
+      ↓
+   ┌────────────────────────────────────────┐
+   │ AI_PROVIDER=openrouter  → OpenRouter   │
+   │ AI_PROVIDER=gemini      → Gemini API   │
+   │ AI_PROVIDER=mock        → Mock Provider│
+   └────────────────────────────────────────┘
+```
+
+> **CRITICAL PRODUCTION SAFETY RULE**:
+> In production, the system will **NEVER** silently fall back to Mock if a real provider fails. If OpenRouter or Gemini encounters an outage, a controlled, user-friendly error is returned. Synthetic Mock responses are returned **only** when `AI_PROVIDER=mock` is explicitly declared.
+
+---
+
+## 4. Local Development
+
 ```bash
+# 1. Install dependencies
 pnpm install
-```
 
-### 2. Configure Environment
-Copy `.env.example` to `.env.local`:
-```bash
+# 2. Configure environment
 cp .env.example .env.local
-```
-In Phase 1, `NEXT_PUBLIC_AI_MODE=mock` is active by default.
 
-### 3. Run Development Server
-```bash
+# 3. Start local development server
 pnpm dev
-```
-Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-### 4. Build for Production
-```bash
+# 4. Build for production
 pnpm build
 pnpm start
 ```
 
 ---
 
-## Directory Structure
+## 5. Testing & Validation
 
-```
-├── app/
-│   ├── globals.css              # Custom Tailwind styling & typography
-│   ├── layout.tsx               # Root layout, metadata & JSON-LD schemas
-│   ├── page.tsx                 # High-converting homepage
-│   ├── robots.ts                # Dynamic robots.txt
-│   └── sitemap.ts               # Dynamic sitemap.xml
-├── components/
-│   ├── features/
-│   │   ├── breed-upload/        # Drag & drop upload, microcopy & results UI
-│   │   └── translator-preview/  # Sound recording & contextual interpreter
-│   ├── layout/
-│   │   ├── navbar.tsx           # Responsive header & drawer navigation
-│   │   └── footer.tsx           # Detailed footer with trust disclaimers
-│   ├── seo/
-│   │   └── json-ld.tsx          # Schema.org structured data
-│   └── ui/                      # Reusable design system primitives
-│       ├── accordion.tsx
-│       ├── alert.tsx
-│       ├── badge.tsx
-│       ├── button.tsx
-│       └── card.tsx
-├── lib/
-│   ├── ai/
-│   │   ├── breed/               # Breed provider interface, mock & types
-│   │   └── translator/          # Sound provider interface, mock & types
-│   ├── data/
-│   │   ├── breeds.ts            # Seeded breed taxonomy
-│   │   └── faq.ts               # Verified feline FAQs
-│   └── utils.ts                 # Classname merge helper
-├── .env.example                 # Environment variable templates
-└── package.json
+The repository includes a comprehensive, multi-tiered test suite:
+
+```bash
+# Run Phase 5 launch readiness test suite (52 tests)
+node tests/test_phase5.mjs
+
+# Run Phase 6 production launch & observability test suite
+node tests/test_phase6.mjs
+
+# Run repeatable AI smoke test harness (supports MOCK and REAL modes)
+node tests/ai_smoke_test.mjs --mode=REAL
+node tests/ai_smoke_test.mjs --mode=MOCK
 ```
 
 ---
 
-## Definition of Done Verification (Phase 1)
-- [x] Zero TypeScript errors (`pnpm run build` succeeds).
-- [x] Fully responsive homepage on mobile and desktop viewports.
-- [x] Interactive Breed Identifier upload flow with rotating loading microcopy.
-- [x] Development Mock Provider returning structured matches, visual evidence, and mixed-breed notes.
-- [x] Cat Translator interactive preview with behavioral context selector.
-- [x] High-performance SEO metadata, JSON-LD, sitemap, and robots directives.
-- [x] Modular architecture ready for Phase 2 vision model integration.
+## 6. Privacy & Data Handling Model
+
+1. **CatAnalyzer Storage**: We do **not** intentionally persist uploaded photos or audio recordings in application databases or local storage disks.
+2. **Third-Party AI Inference**: Media is passed over TLS/HTTPS in transient memory to the active provider (OpenRouter or Google Gemini) strictly for the duration of inference.
+3. **Telemetry**: Only high-level event telemetry and anonymized operational metadata (latency, status, error category) are tracked. No raw user media or AI output is transmitted to analytics.
+
+For details, view the in-app policies at `/privacy`, `/terms`, and `/ai-disclaimer`.

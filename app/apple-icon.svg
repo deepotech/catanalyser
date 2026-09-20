@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <defs>
+    <linearGradient id="apple-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065f46" />
+      <stop offset="50%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="40" fill="url(#apple-bg)" />
+  <!-- Cat Ears -->
+  <polygon points="40,85 62,35 85,75" fill="#ffffff" />
+  <polygon points="95,75 118,35 140,85" fill="#ffffff" />
+  <polygon points="51,75 62,46 79,75" fill="#f43f5e" opacity="0.8" />
+  <polygon points="101,75 118,46 129,75" fill="#f43f5e" opacity="0.8" />
+  <!-- Cat Head -->
+  <ellipse cx="90" cy="102" rx="52" ry="46" fill="#ffffff" />
+  <!-- Eyes -->
+  <ellipse cx="72" cy="96" rx="8" ry="11" fill="#047857" />
+  <ellipse cx="108" cy="96" rx="8" ry="11" fill="#047857" />
+  <circle cx="75" cy="93" r="3" fill="#ffffff" />
+  <circle cx="111" cy="93" r="3" fill="#ffffff" />
+  <!-- Nose & Mouth -->
+  <polygon points="86,110 94,110 90,116" fill="#f43f5e" />
+  <path d="M 85 119 Q 90 125 95 119" stroke="#334155" stroke-width="4" stroke-linecap="round" fill="none" />
+</svg>

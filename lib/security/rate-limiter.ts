@@ -1,14 +1,16 @@
 /**
- * Sliding Window Rate Limiting Abstraction
+ * Rate Limiting Abstraction for CatAnalyzer.com
  *
- * ARCHITECTURAL NOTICE:
- * The default `InMemoryRateLimiter` stores request timestamps in a local JavaScript Map.
+ * PRODUCTION DISTRIBUTED STRATEGY:
+ * - When `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` are configured,
+ *   `UpstashRedisRateLimiter` enforces atomic, distributed rate limiting across all serverless
+ *   instances/regions using zero-dependency HTTP REST pipelines.
  *
- * PRODUCTION SERVERLESS CONSIDERATION:
- * In multi-instance or serverless environments (e.g. Vercel Serverless Functions, AWS Lambda,
- * or autoscaled Kubernetes pods), this in-memory state is process-local. Each isolated worker
- * maintains its own counter. For strict multi-instance distributed rate limiting in high-scale
- * production, initialize `RedisRateLimiter` below with an Upstash Redis or Valkey/Redis instance.
+ * DEGRADED FALLBACK STRATEGY:
+ * - When Redis credentials are NOT configured or during network timeouts (>1500ms),
+ *   the system falls back to `InMemoryRateLimiter`.
+ * - IMPORTANT: In-memory limiting is process-local and does NOT provide distributed protection
+ *   across multi-instance serverless deployments.
  */
 
 export interface RateLimitResult {
@@ -21,9 +23,15 @@ export interface RateLimiter {
   check(identifier: string): Promise<RateLimitResult>;
 }
 
+export interface RateLimiterStatus {
+  isDistributed: boolean;
+  provider: "upstash-redis" | "in-memory";
+  description: string;
+}
+
 /**
  * Process-local in-memory sliding window rate limiter
- * Well-suited for single-instance, development, and containerized deployments.
+ * Degraded fallback for local development or when distributed Redis is unavailable.
  */
 export class InMemoryRateLimiter implements RateLimiter {
   private requests: Map<string, number[]> = new Map();
@@ -49,7 +57,6 @@ export class InMemoryRateLimiter implements RateLimiter {
         }
       }, 5 * 60 * 1000);
 
-      // Prevent timer from holding node process open in short-lived tests
       if (this.cleanupTimer.unref) {
         this.cleanupTimer.unref();
       }
@@ -59,8 +66,6 @@ export class InMemoryRateLimiter implements RateLimiter {
   async check(identifier: string): Promise<RateLimitResult> {
     const now = Date.now();
     const timestamps = this.requests.get(identifier) || [];
-
-    // Filter out timestamps outside current sliding window
     const validTimestamps = timestamps.filter((t) => now - t < this.windowMs);
 
     if (validTimestamps.length >= this.maxRequests) {
@@ -85,55 +90,152 @@ export class InMemoryRateLimiter implements RateLimiter {
 }
 
 /**
- * Pluggable Redis / Upstash Rate Limiter Adapter
- * Drop-in replacement for distributed multi-instance serverless clusters.
+ * Distributed Upstash Redis REST Rate Limiter
+ * Atomic multi-instance protection without external npm dependencies.
  */
-export class RedisRateLimiter implements RateLimiter {
-  private readonly redisUrl?: string;
+export class UpstashRedisRateLimiter implements RateLimiter {
+  private readonly redisUrl: string;
+  private readonly redisToken: string;
   private readonly maxRequests: number;
   private readonly windowSeconds: number;
+  private readonly fallbackLimiter: InMemoryRateLimiter;
 
-  constructor(redisUrl?: string, maxRequests = 10, windowSeconds = 60) {
-    this.redisUrl = redisUrl || process.env.UPSTASH_REDIS_REST_URL || process.env.REDIS_URL;
+  constructor(
+    redisUrl: string,
+    redisToken: string,
+    maxRequests = 10,
+    windowSeconds = 60
+  ) {
+    this.redisUrl = redisUrl.replace(/\/+$/, "");
+    this.redisToken = redisToken;
     this.maxRequests = maxRequests;
     this.windowSeconds = windowSeconds;
+    this.fallbackLimiter = new InMemoryRateLimiter(maxRequests, windowSeconds);
   }
 
   async check(identifier: string): Promise<RateLimitResult> {
-    // When external Redis connection is not configured, fall back safely
-    if (!this.redisUrl) {
-      return getInMemoryRateLimiter().check(identifier);
-    }
+    const key = `ratelimit:${identifier.replace(/[^a-zA-Z0-9._-]/g, "")}`;
+    const endpoint = `${this.redisUrl}/pipeline`;
 
-    // In a distributed Redis setup, execute an atomic sliding window INCR / EXPIRE or EVAL script
-    // Example: eval "local c = redis.call('INCR', KEYS[1]) if c == 1 then redis.call('EXPIRE', KEYS[1], ARGV[1]) end return c"
-    return {
-      allowed: true,
-      remaining: this.maxRequests - 1,
-      resetSeconds: this.windowSeconds,
-    };
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 1500); // 1.5s fast timeout
+    if (timeout.unref) timeout.unref();
+
+    try {
+      // Execute INCR + EXPIRE pipeline atomically
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${this.redisToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify([
+          ["INCR", key],
+          ["EXPIRE", key, this.windowSeconds],
+          ["TTL", key],
+        ]),
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeout);
+
+      if (!response.ok) {
+        console.warn(
+          `[Rate Limiter Warning] Upstash Redis returned HTTP ${response.status}. Falling back to degraded in-memory limiter.`
+        );
+        return this.fallbackLimiter.check(identifier);
+      }
+
+      const results = (await response.json()) as Array<{ result?: number }>;
+      const currentCount = typeof results[0]?.result === "number" ? results[0].result : 1;
+      const ttl = typeof results[2]?.result === "number" && results[2].result > 0 ? results[2].result : this.windowSeconds;
+
+      if (currentCount > this.maxRequests) {
+        return {
+          allowed: false,
+          remaining: 0,
+          resetSeconds: ttl,
+        };
+      }
+
+      return {
+        allowed: true,
+        remaining: Math.max(0, this.maxRequests - currentCount),
+        resetSeconds: ttl,
+      };
+    } catch (err: unknown) {
+      clearTimeout(timeout);
+      console.warn(
+        `[Rate Limiter Warning] Upstash Redis request failed (${err instanceof Error ? err.message : "network error"}). Degraded in-memory limiting active.`
+      );
+      return this.fallbackLimiter.check(identifier);
+    }
   }
 }
 
-// Global in-memory singleton
+// Global Singletons
 let inMemorySingleton: InMemoryRateLimiter | null = null;
 let activeLimiter: RateLimiter | null = null;
 
-function getInMemoryRateLimiter(): InMemoryRateLimiter {
+function getInMemoryRateLimiter(maxRequests = 10, windowSeconds = 60): InMemoryRateLimiter {
   if (!inMemorySingleton) {
-    inMemorySingleton = new InMemoryRateLimiter(10, 60);
+    inMemorySingleton = new InMemoryRateLimiter(maxRequests, windowSeconds);
   }
   return inMemorySingleton;
 }
 
+/**
+ * Returns the configured rate limiter.
+ * Selects Upstash Redis if credentials exist; otherwise returns in-memory fallback.
+ */
 export function getRateLimiter(): RateLimiter {
   if (!activeLimiter) {
-    // If Redis environment variables are present in production, switch to Redis adapter
-    if (process.env.UPSTASH_REDIS_REST_URL || process.env.REDIS_URL) {
-      activeLimiter = new RedisRateLimiter();
+    const redisUrl = process.env.UPSTASH_REDIS_REST_URL?.trim();
+    const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN?.trim();
+    const maxRequests = parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || "10", 10) || 10;
+    const windowSeconds = parseInt(process.env.RATE_LIMIT_WINDOW_SECONDS || "60", 10) || 60;
+
+    if (redisUrl && redisToken) {
+      activeLimiter = new UpstashRedisRateLimiter(
+        redisUrl,
+        redisToken,
+        maxRequests,
+        windowSeconds
+      );
     } else {
-      activeLimiter = getInMemoryRateLimiter();
+      activeLimiter = getInMemoryRateLimiter(maxRequests, windowSeconds);
     }
   }
   return activeLimiter;
+}
+
+/**
+ * Reports current rate limiting status for telemetry and health audits.
+ */
+export function getRateLimiterStatus(): RateLimiterStatus {
+  const redisUrl = process.env.UPSTASH_REDIS_REST_URL?.trim();
+  const redisToken = process.env.UPSTASH_REDIS_REST_TOKEN?.trim();
+
+  if (redisUrl && redisToken) {
+    return {
+      isDistributed: true,
+      provider: "upstash-redis",
+      description: "Distributed rate limiting active via Upstash Redis REST.",
+    };
+  }
+
+  return {
+    isDistributed: false,
+    provider: "in-memory",
+    description:
+      "Degraded in-memory rate limiting active (single-instance only). Multi-instance distributed protection is NOT enabled.",
+  };
+}
+
+/**
+ * Resets the rate limiter singleton for testing.
+ */
+export function resetRateLimiter(): void {
+  activeLimiter = null;
+  inMemorySingleton = null;
 }

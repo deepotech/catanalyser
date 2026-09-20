@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getBreedAnalysisProvider } from "@/lib/ai/breed";
 import { getRateLimiter } from "@/lib/security/rate-limiter";
 import { siteConfig } from "@/lib/config/site";
+import { ProductionMonitor } from "@/lib/observability/monitor";
 
 const ALLOWED_MIME_TYPES = ["image/jpeg", "image/png", "image/webp"];
 
@@ -134,6 +135,8 @@ export async function POST(request: NextRequest) {
     const rawFileName = "name" in file && typeof file.name === "string" ? file.name : "cat-photo.jpg";
     const sanitizedFileName = rawFileName.replace(/[^a-zA-Z0-9._-]/g, "");
 
+    const startTime = Date.now();
+
     // 5. Invoke the Server-Side AI Provider Abstraction
     const provider = getBreedAnalysisProvider();
     const result = await provider.analyzeCatBreed({
@@ -141,6 +144,14 @@ export async function POST(request: NextRequest) {
       fileName: sanitizedFileName,
       mimeType: file.type,
       fileSizeBytes: file.size,
+    });
+
+    const durationMs = Date.now() - startTime;
+    ProductionMonitor.logEvent("info", "Breed analysis completed successfully", {
+      endpoint: "/api/identify-breed",
+      provider: provider.name,
+      durationMs,
+      httpStatus: 200,
     });
 
     // 6. Return normalized structured result (zero disk storage, privacy protected)
@@ -151,18 +162,17 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error: unknown) {
-    console.error("[API Identify Breed Error]:", error);
-    const message =
-      error instanceof Error
-        ? error.message
-        : "An unexpected error occurred while analyzing the image. Please try again.";
+    const { userMessage, httpStatus } = ProductionMonitor.captureError(error, {
+      endpoint: "/api/identify-breed",
+      httpStatus: 500,
+    });
 
     return NextResponse.json(
       {
-        error: message,
+        error: userMessage,
         status: "error",
       },
-      { status: 500 }
+      { status: httpStatus }
     );
   }
 }
