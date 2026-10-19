@@ -118,7 +118,7 @@ export default async function BreedDetailPage({ params }: PageProps) {
           name: "CatAnalyzer",
           logo: {
             "@type": "ImageObject",
-            url: `${siteUrl}/favicon.ico`,
+            url: `${siteUrl}/icon.svg`,
           },
         },
         mainEntityOfPage: `${siteUrl}/cat-breeds/${breed.slug}`,

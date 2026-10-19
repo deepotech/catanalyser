@@ -21,8 +21,25 @@ import { POPULAR_BREEDS } from "@/lib/data/breeds";
 import { HOMEPAGE_FAQS } from "@/lib/data/faq";
 
 export default function HomePage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: HOMEPAGE_FAQS.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <div className="flex flex-col items-center">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* ===================================================
           1. HERO & BREED IDENTIFIER UPLOAD TOOL
       =================================================== */}

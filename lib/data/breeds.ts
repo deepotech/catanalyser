@@ -231,6 +231,16 @@ export const POPULAR_BREEDS: BreedData[] = [
         answer:
           "Siamese vocalization has been bred over centuries as a direct human-to-cat communication mechanism. Their raspy 'meow' closely mimics an infant's call to elicit response.",
       },
+      {
+        question: "What is the typical personality of a Siamese or Siamese mix cat?",
+        answer:
+          "Siamese cats and Siamese mixes are intensely social, deeply affectionate, and intellectually demanding. They follow their human companions from room to room, crave active participation in daily tasks, and form close companion bonds. Even in mixed-breed domestic cats with partial Siamese heritage, owners often notice high curiosity, dog-like fetching behavior, and frequent conversational chirps.",
+      },
+      {
+        question: "Why do Siamese cats have darker color points on their ears, face, and paws?",
+        answer:
+          "The Siamese colorpoint pattern is caused by a temperature-sensitive genetic enzyme mutation. The enzyme responsible for melanin pigment production is heat-sensitive and only activates in cooler body areas—specifically the ears, face mask, tail, and paws. Kittens are born pure white inside the warm womb and gradually develop their distinctive points over their first several weeks of life.",
+      },
     ],
     coatLength: "Shorthair",
     groomingNeeds: "Low",
@@ -401,6 +411,16 @@ export const POPULAR_BREEDS: BreedData[] = [
         question: "Are all British Shorthairs blue/grey?",
         answer:
           "While the 'British Blue' is the most iconic color, British Shorthairs come in dozens of colors and patterns, including black, white, cream, and silver tabby.",
+      },
+      {
+        question: "What are the defining characteristics of a British Shorthair?",
+        answer:
+          "The British Shorthair is defined by its compact 'cobby' body, broad chest, massive round head, prominent smiling cheeks, and short, sturdy legs. Their coat has a crisp, woolly density that parts cleanly over muscle contours, complemented by large, round eyes that are famously deep copper or amber.",
+      },
+      {
+        question: "How big does a British Shorthair get in size and weight?",
+        answer:
+          "British Shorthairs are medium-to-large, heavy-boned cats. Adult males typically weigh between 12 and 18 lbs (5.4 to 8.2 kg), while females average 8 to 12 lbs (3.6 to 5.4 kg). Because of their dense bone structure, they develop slowly and usually reach full physical maturity and full cheek width between 3 and 5 years of age.",
       },
     ],
     coatLength: "Shorthair",
@@ -578,6 +598,11 @@ export const POPULAR_BREEDS: BreedData[] = [
         answer:
           "Look at the profile: Norwegian Forest Cats have an equilateral triangular head with a completely straight nose bridge. Maine Coons have a square boxy muzzle and a gentle dip in their nose curve.",
       },
+      {
+        question: "How does the size of a Norwegian Forest Cat compare to a Maine Coon?",
+        answer:
+          "While both are substantial natural forest breeds, the Maine Coon is longer in body and generally heavier, with males reaching 15–25 lbs (6.8–11.3 kg) and total body lengths exceeding 38 inches. Norwegian Forest Cats are slightly more compact and higher on their hind legs, with males typically weighing 12–18 lbs (5.4–8.2 kg).",
+      },
     ],
     coatLength: "Semi-Longhair",
     groomingNeeds: "Moderate",
@@ -634,6 +659,21 @@ export const POPULAR_BREEDS: BreedData[] = [
         question: "Is an American Shorthair just a domestic moggy?",
         answer:
           "No. While domestic shorthairs are mixed-breed cats without pedigrees, the American Shorthair is a registered purebred with standardized anatomical conformation and consistent temperament.",
+      },
+      {
+        question: "How big does an American Shorthair get in size and weight?",
+        answer:
+          "Full-grown American Shorthairs are solidly built medium-to-large cats. Males typically weigh between 11 and 15 pounds (5.0 to 6.8 kg), while females usually range between 7 and 12 pounds (3.2 to 5.4 kg). They are slow-maturing cats, reaching full physical size and muscular development around 3 to 4 years of age.",
+      },
+      {
+        question: "What is the typical American Shorthair temperament and behavior?",
+        answer:
+          "American Shorthairs are famous for their even-tempered, gentle, and adaptable nature. Inheriting the working instincts of historic ship and barn mousers, they enjoy interactive play, yet remain calm lap companions. They adapt exceptionally well to children, multi-cat households, and cat-friendly dogs.",
+      },
+      {
+        question: "Are all tabby cats American Shorthairs?",
+        answer:
+          "No. Tabby is a coat pattern (stripes, swirls, or spots), not a breed. While the classic silver tabby is the most famous pattern of the purebred American Shorthair, domestic shorthairs and many other breeds also display tabby coats. Purebred American Shorthairs have standardized head conformation, square muzzles, and registered pedigrees.",
       },
     ],
     coatLength: "Shorthair",
@@ -862,6 +902,16 @@ export const POPULAR_BREEDS: BreedData[] = [
         question: "Is the Devon Rex coat the same as the Cornish Rex?",
         answer:
           "No. The Devon Rex mutation is genetically distinct from the Cornish Rex. Devons have guard hairs and a looser wave, whereas Cornish coats have no guard hairs.",
+      },
+      {
+        question: "What are the defining characteristics of a Devon Rex?",
+        answer:
+          "The Devon Rex is famous for its distinctive elfin appearance: enormous, butterfly-like ears set low on the skull, high prominent cheekbones, short crinkled whiskers, and a light, rippling wavy coat known as rexing. They have an athletic, fine-boned body and an intensely clownish, social personality.",
+      },
+      {
+        question: "Are Devon Rex cats hypoallergenic?",
+        answer:
+          "No cat is completely hypoallergenic because feline allergies are caused by proteins (mainly Fel d 1) present in saliva, sebum, and dander—not cat hair itself. However, because Devon Rex cats shed very little fine hair, they distribute significantly less saliva-coated dander into home environments, which many allergy-sensitive owners tolerate better.",
       },
     ],
     coatLength: "Shorthair",

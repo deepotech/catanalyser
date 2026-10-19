@@ -8,16 +8,16 @@ import { Button } from "@/components/ui/button";
 import { getSiteUrl } from "@/lib/config/site";
 
 export const metadata: Metadata = {
-  title: "Cat Breed Comparison Tool: Side-by-Side Breed Matchups | CatAnalyzer",
+  title: "Compare Cat Breeds Side-by-Side: Size, Personality & Care Tool | CatAnalyzer",
   description:
-    "Compare cat breeds side-by-side. Analyze size, coat care, personality, activity level, and facial features to find the right cat or identify subtle breed differences.",
+    "Compare any two cat breeds side-by-side. Analyze size differences, coat care, personality, vocalization, and physical traits to distinguish lookalike breeds.",
   alternates: {
     canonical: "/compare",
   },
   openGraph: {
-    title: "Cat Breed Comparison Tool — Side-by-Side Trait Matrix",
+    title: "Compare Cat Breeds Side-by-Side — Size, Personality & Trait Tool",
     description:
-      "Compare any two cat breeds side-by-side. Differentiate similar-looking breeds by muzzle shape, coat texture, vocalization, and energy levels.",
+      "Compare any two cat breeds side-by-side. Differentiate lookalike breeds by size, muzzle shape, coat texture, vocalization, and energy levels.",
     type: "website",
   },
 };

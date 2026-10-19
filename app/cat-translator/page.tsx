@@ -5,6 +5,8 @@ import {
   Volume2,
   Mic,
   ArrowLeft,
+  ArrowRight,
+  Camera,
   Info,
   CheckCircle2,
   ShieldAlert,
@@ -15,6 +17,7 @@ import {
 import { SoundRecorder } from "@/components/features/cat-translator/sound-recorder";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem } from "@/components/ui/accordion";
 
 export const metadata: Metadata = {
@@ -102,17 +105,32 @@ const COMMON_SOUNDS = [
 export default function CatTranslatorPage() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "CatAnalyzer Cat Sound Interpreter",
-    applicationCategory: "UtilitiesApplication",
-    operatingSystem: "All",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
-    description:
-      "Record or upload your cat's vocalization to receive a probabilistic, context-aware interpretation of possible behavioral meanings.",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        name: "CatAnalyzer Cat Sound Interpreter",
+        applicationCategory: "UtilitiesApplication",
+        operatingSystem: "All",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+        description:
+          "Record or upload your cat's vocalization to receive a probabilistic, context-aware interpretation of possible behavioral meanings.",
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: TRANSLATOR_FAQS.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (
@@ -332,6 +350,38 @@ export default function CatTranslatorPage() {
             </AccordionItem>
           ))}
         </Accordion>
+      </section>
+
+      {/* Cross-Link: Identify Cat Breed */}
+      <section className="w-full max-w-5xl px-4 sm:px-6 lg:px-8 pb-20">
+        <div className="rounded-3xl border border-stone-200 bg-gradient-to-r from-stone-900 via-stone-850 to-stone-900 text-white p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-soft">
+          <div className="space-y-2 text-center sm:text-left">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-xs font-semibold text-stone-200">
+              <Camera className="h-3.5 w-3.5 text-brand-400" />
+              <span>AI Visual Phenotype Scan</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold">
+              What Breed Is Your Cat?
+            </h3>
+            <p className="text-xs sm:text-sm text-stone-300 max-w-xl">
+              Understand both voice and appearance. Upload a photo to scan your cat&apos;s physical markers, coat patterns, and explore 16 recognized breed standards.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+            <Link href="/cat-breed-identifier">
+              <Button size="lg" className="bg-white text-stone-900 hover:bg-stone-100 font-bold gap-2 shadow-md">
+                <Sparkles className="h-4 w-4 text-brand-600" />
+                Identify My Cat&apos;s Breed
+              </Button>
+            </Link>
+            <Link
+              href="/cat-breeds"
+              className="text-xs font-semibold text-stone-300 hover:text-white underline underline-offset-4 py-2"
+            >
+              Browse 16 Breeds Directory →
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );

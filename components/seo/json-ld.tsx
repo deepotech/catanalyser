@@ -1,5 +1,4 @@
 import * as React from "react";
-import { HOMEPAGE_FAQS } from "@/lib/data/faq";
 import { getSiteUrl } from "@/lib/config/site";
 
 export function JsonLdSchemas() {
@@ -38,19 +37,6 @@ export function JsonLdSchemas() {
     ],
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: HOMEPAGE_FAQS.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-
   return (
     <>
       <script
@@ -60,10 +46,6 @@ export function JsonLdSchemas() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </>
   );
