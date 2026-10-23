@@ -112,6 +112,16 @@ export const POPULAR_BREEDS: BreedData[] = [
         answer:
           "While their coat is silky and less prone to matting than Persians, brushing two to three times weekly keeps their chest ruff and flank fur knot-free.",
       },
+      {
+        question: "How big does a full-grown Maine Coon get in size and weight?",
+        answer:
+          "Maine Coons are one of the largest domestic cat breeds. Adult males typically weigh between 15 and 25 lbs (6.8 to 11.3 kg) and can exceed 38 inches from nose to tail tip, while females average 11 to 16 lbs (5.0 to 7.3 kg). They mature slowly, reaching full skeletal and muscular size between 3 and 5 years of age.",
+      },
+      {
+        question: "What is the typical temperament of a Maine Coon cat?",
+        answer:
+          "Maine Coons are celebrated as gentle giants with dog-like sociability. They are curious, friendly, and patient companions who enjoy interactive play and get along exceptionally well with children, cat-friendly dogs, and multi-pet households.",
+      },
     ],
     coatLength: "Semi-Longhair",
     groomingNeeds: "Moderate",
@@ -173,6 +183,16 @@ export const POPULAR_BREEDS: BreedData[] = [
         question: "Do all Ragdolls have blue eyes?",
         answer:
           "Yes. According to official breed standards, purebred pointed Ragdolls must always display blue eyes.",
+      },
+      {
+        question: "How large does a Ragdoll cat get in weight and size?",
+        answer:
+          "Ragdolls are large, heavy-boned cats. Adult males typically weigh 15 to 20 lbs (6.8 to 9.0 kg), while females average 10 to 15 lbs (4.5 to 6.8 kg). Because they develop slowly, they reach their full weight, coat density, and eye color intensity between 3 and 4 years of age.",
+      },
+      {
+        question: "What are the recognized patterns of Ragdoll cats?",
+        answer:
+          "Ragdolls come in three primary official patterns: Colorpoint (classic darker extremities with no white), Mitted (white front mittens, hind white boots, and white chin), and Bicolor (signature inverted white 'V' on the face, white chest, white legs, and white stomach).",
       },
     ],
     coatLength: "Semi-Longhair",
@@ -298,6 +318,16 @@ export const POPULAR_BREEDS: BreedData[] = [
         answer:
           "Yes. Due to their long guard hairs and thick woolly undercoat, Persians must be combed daily with a stainless steel comb to prevent painful knots.",
       },
+      {
+        question: "Why do Persian cats need daily eye and facial cleaning?",
+        answer:
+          "Because of their brachycephalic facial geometry, Persian cats have shortened nasolacrimal ducts that often cause excessive tearing. Gently wiping around their eyes and skin folds with a damp cotton pad daily prevents crusting, tear staining, and fungal skin irritation.",
+      },
+      {
+        question: "What is the difference between a traditional doll-face and show-standard Persian?",
+        answer:
+          "Traditional or 'doll-face' Persians have a less extreme facial stop, with their nose positioned below the level of the eyes, allowing more natural breathing. Show-standard (peke-face) Persians feature an ultra-flat profile with the nose positioned directly between the eyes.",
+      },
     ],
     coatLength: "Longhair",
     groomingNeeds: "High",
@@ -354,6 +384,16 @@ export const POPULAR_BREEDS: BreedData[] = [
         question: "Do Bengal cats really like water?",
         answer:
           "Yes! Many Bengals inherit an affinity for water from their wild ancestors, frequently playing in sinks or stepping into showers.",
+      },
+      {
+        question: "How can you tell a Bengal cat apart from a standard tabby?",
+        answer:
+          "Bengals feature distinctive two-toned rosettes (spots with dark rims and warmer centers) or wild marbled swirls, a dense pelt with a metallic 'glitter' sheen, and an athletic body with longer hind legs. Domestic tabby cats have linear stripes or blotched swirls without rosettes or pelt glitter.",
+      },
+      {
+        question: "Are Bengal cats demanding or vocal companions?",
+        answer:
+          "Bengals are highly active, intellectually demanding cats that require stimulating exercise, cat trees, and puzzle toys. They communicate openly with distinctive raspy meows, chirps, and conversational trills.",
       },
     ],
     coatLength: "Shorthair",
@@ -479,6 +519,16 @@ export const POPULAR_BREEDS: BreedData[] = [
         answer:
           "No. All Scottish Fold kittens are born with straight ears. The fold typically begins developing around 3 to 4 weeks of age in kittens carrying the gene.",
       },
+      {
+        question: "Why should two Scottish Folds never be bred together?",
+        answer:
+          "The folded ear is caused by an incomplete dominant mutation (Fd). Breeding two folded cats together carries a severe risk of producing homozygous kittens with osteochondrodysplasia, a crippling cartilage deformity. Responsible breeders always cross folded cats with straight-eared Scottish Straights, British Shorthairs, or American Shorthairs.",
+      },
+      {
+        question: "Do Scottish Fold ears require special cleaning or care?",
+        answer:
+          "Yes. Because the ears fold forward tightly against the skull, natural air circulation is reduced. Gentle weekly checks and cleaning of the outer fold with a vet-approved ear wipe help prevent wax buildup and irritation.",
+      },
     ],
     coatLength: "Shorthair",
     groomingNeeds: "Low",
@@ -540,6 +590,16 @@ export const POPULAR_BREEDS: BreedData[] = [
         question: "Do Sphynx cats require baths?",
         answer:
           "Yes. Without fur to absorb natural body oils, Sphynx cats require gentle bathing every 1 to 2 weeks to keep their skin healthy.",
+      },
+      {
+        question: "Do Sphynx cats feel cold to the touch?",
+        answer:
+          "No, Sphynx cats actually feel very warm to the touch—often compared to a warm suede hot-water bottle. Because they have a slightly higher body temperature and metabolism to compensate for lack of fur, their skin radiates warmth, and they actively seek warm laps and heated blankets.",
+      },
+      {
+        question: "Are Sphynx cats hypoallergenic for allergy sufferers?",
+        answer:
+          "No cat is completely hypoallergenic. Feline allergies are triggered by the Fel d 1 protein found in saliva and sebum. Because Sphynx cats groom their skin with saliva, Fel d 1 is still present. However, because they lack shedding fur to disperse dander into carpets and upholstery, some sensitive owners find their symptoms more manageable.",
       },
     ],
     coatLength: "Hairless",
@@ -732,6 +792,16 @@ export const POPULAR_BREEDS: BreedData[] = [
         answer:
           "A ticked coat means each individual hair strand has alternating bands of dark and light pigmentation, creating an iridescent shimmering effect like a wild hare.",
       },
+      {
+        question: "Are Abyssinian cats calm lap cats or active acrobats?",
+        answer:
+          "Abyssinians are restless, highly athletic cats that rarely stay still for extended periods. Rather than resting quietly on laps, they prefer interactive problem-solving games, climbing doorframes and tall perches, and perching atop their human companions' shoulders.",
+      },
+      {
+        question: "What are the recognized colors of the Abyssinian breed?",
+        answer:
+          "The four standardized championship colors are Ruddy (Usual) featuring warm burnt-sienna ticking, Sorrel (Cinnamon) with warm apricot undercoat and reddish-brown ticking, Blue with soft warm grey ticking, and Fawn with delicate warm oatmeal tones.",
+      },
     ],
     coatLength: "Shorthair",
     groomingNeeds: "Low",
@@ -788,6 +858,16 @@ export const POPULAR_BREEDS: BreedData[] = [
         question: "How do Birmans differ from Ragdolls?",
         answer:
           "Birmans are generally smaller and more compact than Ragdolls, possess a Roman nose with no flat stop, and must strictly display pure white gloves on all paws.",
+      },
+      {
+        question: "What are the required white gloves and gauntlets on a Birman cat?",
+        answer:
+          "Official breed standards strictly mandate pure white 'gloves' ending evenly across the front paws at the wrist, and white 'laces' or gauntlets that extend up the back of the rear hocks in an elegant inverted 'V' shape.",
+      },
+      {
+        question: "What is the typical personality and vocal behavior of a Birman?",
+        answer:
+          "Birmans are known for their gentle, serene, and patient temperament. They communicate with a soft, melodic bell-like chirp rather than a loud meow, making them exceptionally pleasant companions for quiet households.",
       },
     ],
     coatLength: "Semi-Longhair",
@@ -970,6 +1050,16 @@ export const POPULAR_BREEDS: BreedData[] = [
         answer:
           "Because they carry the same sweet flat-faced look and gentle personality of the Persian, but their short coat requires only weekly brushing rather than daily detangling.",
       },
+      {
+        question: "Do Exotic Shorthairs need eye and facial fold cleaning?",
+        answer:
+          "Yes. Because they have the same flat, brachycephalic facial structure and short tear ducts as Persians, Exotic Shorthairs benefit from gentle daily wiping around their eyes and muzzle folds with a damp cloth to prevent tear staining.",
+      },
+      {
+        question: "How does an Exotic Shorthair differ from a British Shorthair?",
+        answer:
+          "While both are plush-coated, teddy-bear-like cats, the Exotic Shorthair has an authentic brachycephalic flat muzzle with a distinct snub nose and deep stop. The British Shorthair has full, chubby cheeks and a rounded muzzle profile with a straight, uncompressed nasal bridge.",
+      },
     ],
     coatLength: "Shorthair",
     groomingNeeds: "Low",
@@ -1027,6 +1117,16 @@ export const POPULAR_BREEDS: BreedData[] = [
         answer:
           "While the pure white Turkish Angora is the historic national symbol of Turkey, the breed now comes in many colors including black, blue, and tabby.",
       },
+      {
+        question: "Are all white, blue-eyed Turkish Angora cats deaf?",
+        answer:
+          "Not all, but congenital deafness can be genetically linked to the dominant white gene (W) and blue eye color. Odd-eyed Turkish Angoras (one blue, one amber or green) may experience reduced hearing only on the side of the blue eye. Colored Turkish Angoras have completely normal hearing.",
+      },
+      {
+        question: "How does the Turkish Angora coat differ from a Persian coat?",
+        answer:
+          "The Turkish Angora possesses a single, silky semi-longhair coat without a dense woolly undercoat. It moves gracefully with the cat's body and resists matting, requiring only weekly brushing, whereas a Persian's full double coat requires intensive daily detangling.",
+      },
     ],
     coatLength: "Semi-Longhair",
     groomingNeeds: "Low",
@@ -1036,11 +1136,20 @@ export const POPULAR_BREEDS: BreedData[] = [
 ];
 
 // Curated Comparison Registry (Pairs of genuine high-interest matchups)
+export interface ComparisonKeyDifference {
+  category: string;
+  detailA: string;
+  detailB: string;
+}
+
 export interface CuratedComparison {
   slugA: string;
   slugB: string;
   title: string;
   highlightDifference: string;
+  summary?: string;
+  keyDifferences?: ComparisonKeyDifference[];
+  faq?: BreedFAQ[];
 }
 
 export const CURATED_COMPARISONS: CuratedComparison[] = [
@@ -1049,60 +1158,370 @@ export const CURATED_COMPARISONS: CuratedComparison[] = [
     slugB: "norwegian-forest-cat",
     title: "Maine Coon vs. Norwegian Forest Cat",
     highlightDifference: "Muzzle Shape (Square boxy vs. Equilateral triangular) & Ear size",
+    summary:
+      "Comparing the Maine Coon and Norwegian Forest Cat: two natural cold-adapted forest breeds often confused. The Maine Coon has a square, boxy muzzle with a gentle nasal dip and large lynx-tipped ears, while the Norwegian Forest Cat features an equilateral triangular head with a dead-straight nasal profile and high hind legs.",
+    keyDifferences: [
+      {
+        category: "Head & Muzzle Profile",
+        detailA: "Square boxy muzzle with a visible gentle nasal dip in profile.",
+        detailB: "Equilateral triangular head with a completely straight nasal bridge.",
+      },
+      {
+        category: "Body Scale & Build",
+        detailA: "Very large frame (15–25 lbs for males) with long rectangular torso.",
+        detailB: "Substantial frame (12–18 lbs for males) with higher hind legs for climbing.",
+      },
+      {
+        category: "Coat & Tail",
+        detailA: "Heavy shaggy multi-layered coat with immense flowing plume tail.",
+        detailB: "Dense woolly undercoat with water-shedding guard hairs carried high.",
+      },
+    ],
+    faq: [
+      {
+        question: "How do I identify a Maine Coon vs Norwegian Forest Cat in profile?",
+        answer:
+          "Look at the nose line: a Norwegian Forest Cat has a dead-straight slope from forehead to nose tip with zero break. A Maine Coon displays a gentle nasal dip and square, boxy muzzle contour.",
+      },
+      {
+        question: "Which breed is larger: Maine Coon or Norwegian Forest Cat?",
+        answer:
+          "Maine Coons are generally longer and heavier, with adult males reaching 15 to 25 lbs (6.8 to 11.3 kg), while Norwegian Forest Cat males typically average 12 to 18 lbs (5.4 to 8.2 kg).",
+      },
+    ],
   },
   {
     slugA: "maine-coon",
     slugB: "ragdoll",
     title: "Maine Coon vs. Ragdoll",
     highlightDifference: "Eye Color & Conformation (Sapphire pointed vs. Shaggy tabby giant)",
+    summary:
+      "Comparing the Maine Coon and Ragdoll: both are celebrated as gentle giants with affectionate personalities, but the Maine Coon is a rugged outdoor-adapted breed with a shaggy coat, square muzzle, and lynx tufts, while the Ragdoll is a colorpoint cat with deep blue oval eyes, rabbit-soft fur, and a famously placid, limp posture.",
+    keyDifferences: [
+      {
+        category: "Eye Color & Shape",
+        detailA: "Green, gold, or copper oval eyes with a gentle oblique slant.",
+        detailB: "Strictly deep sapphire-blue large oval eyes.",
+      },
+      {
+        category: "Coat & Undercoat",
+        detailA: "Rugged, multi-layered double coat with dense undercoat and chest ruff.",
+        detailB: "Plush, bunny-soft semi-longhair coat with minimal woolly undercoat.",
+      },
+      {
+        category: "Facial Conformation",
+        detailA: "Broad square muzzle with high cheekbones and tufted lynx ears.",
+        detailB: "Broad modified wedge with rounded contours and medium rounded ears.",
+      },
+    ],
+    faq: [
+      {
+        question: "Which is larger: a Maine Coon or a Ragdoll?",
+        answer:
+          "The Maine Coon is generally heavier and longer, with adult males reaching 15 to 25 lbs (6.8 to 11.3 kg) and total lengths exceeding 38 inches. Ragdoll males typically weigh 15 to 20 lbs (6.8 to 9.0 kg).",
+      },
+      {
+        question: "Do Maine Coons and Ragdolls require the same grooming routine?",
+        answer:
+          "Ragdolls have minimal woolly undercoat and are less prone to severe matting, needing gentle brushing 1 to 2 times weekly. Maine Coons possess a denser double coat with a heavy chest ruff requiring brushing 2 to 3 times weekly.",
+      },
+    ],
   },
   {
     slugA: "siamese",
     slugB: "ragdoll",
     title: "Siamese vs. Ragdoll",
     highlightDifference: "Coat Length & Energy (Sleek vocal athlete vs. Placid cuddly semi-longhair)",
+    summary:
+      "Comparing the Siamese and Ragdoll: these breeds represent polar opposites of the domestic feline spectrum. The Siamese is a sleek, highly vocal, inquisitive athlete with a fine wedge head, while the Ragdoll is a placid, quiet semi-longhair giant with a bunny-soft coat that relaxes completely in your arms.",
+    keyDifferences: [
+      {
+        category: "Coat Length & Texture",
+        detailA: "Very short, fine, glossy coat lying tight to the body.",
+        detailB: "Plush, rabbit-soft semi-longhair coat with light undercoat.",
+      },
+      {
+        category: "Vocalization & Demeanor",
+        detailA: "Very vocal, conversational, and demanding of immediate attention.",
+        detailB: "Quiet, placid, and gentle; rarely vocalizes loudly.",
+      },
+      {
+        category: "Body Silhouette",
+        detailA: "Slender, tubular 'foreign' build with fine bones and flared ears.",
+        detailB: "Large, substantial, heavy-boned build with yielding muscle tone.",
+      },
+    ],
+    faq: [
+      {
+        question: "Which breed is better suited for an apartment: Siamese or Ragdoll?",
+        answer:
+          "Both adapt well to indoor living, but Ragdolls are quiet and relaxed companions ideal for close neighbors, while Siamese cats require extensive interactive play and vocalize frequently throughout the day.",
+      },
+      {
+        question: "Do both Siamese and Ragdoll cats always have blue eyes?",
+        answer:
+          "Yes. Both breeds display pointed temperature-sensitive coloration caused by the Himalayan gene, which strictly produces striking blue eyes in purebred individuals.",
+      },
+    ],
   },
   {
     slugA: "british-shorthair",
     slugB: "persian",
     title: "British Shorthair vs. Persian",
     highlightDifference: "Coat Care & Facial Structure (Low-maintenance teddy vs. Opulent longhair)",
+    summary:
+      "Comparing the British Shorthair and Persian: both breeds share a calm, quiet temperament and round facial aesthetics, but the British Shorthair has an easy-care, dense plush coat and smiling cheeks, while the Persian possesses an opulent flowing double coat and true brachycephalic flat muzzle requiring daily grooming.",
+    keyDifferences: [
+      {
+        category: "Grooming Commitment",
+        detailA: "Weekly brushing with a firm rubber or slicker brush; resists knots.",
+        detailB: "Daily 10–15 minute comb through to prevent severe matting, plus eye care.",
+      },
+      {
+        category: "Facial Architecture",
+        detailA: "Round skull with chubby smiling cheeks and straight nasal bridge.",
+        detailB: "Flat brachycephalic muzzle with deep nasal stop between the eyes.",
+      },
+      {
+        category: "Coat Texture",
+        detailA: "Short, dense, crisp plush coat like a thick wool rug.",
+        detailB: "Extremely dense, flowing, full-length double coat with massive ruff.",
+      },
+    ],
+    faq: [
+      {
+        question: "Is a British Shorthair easier to care for than a Persian?",
+        answer:
+          "Yes. The British Shorthair's short plush coat does not tangle easily, making weekly brushing sufficient. In contrast, Persians require dedicated daily combing to prevent painful pelt mats.",
+      },
+      {
+        question: "Do British Shorthairs have the same flat face as Persians?",
+        answer:
+          "No. While British Shorthairs have massive round heads and chubby cheeks, their muzzles have a distinct profile with a straight nasal bridge, avoiding the extreme facial compression of show Persians.",
+      },
+    ],
   },
   {
     slugA: "bengal",
     slugB: "abyssinian",
     title: "Bengal vs. Abyssinian",
     highlightDifference: "Pelt Pattern (Wild spotted rosettes vs. Fine ticked agouti fur)",
+    summary:
+      "Comparing the Bengal and Abyssinian: while both are athletic, high-energy shorthair breeds that love interactive play, the Bengal features exotic leopard rosettes with a glitter sheen, whereas the Abyssinian showcases an iridescent ticked agouti coat and large alert ears.",
+    keyDifferences: [
+      {
+        category: "Pelt Pattern & Sheen",
+        detailA: "High-contrast spotted rosettes or marbled swirls with iridescent glitter.",
+        detailB: "Fine ticked agouti coat with multiple dark bands per hair shaft.",
+      },
+      {
+        category: "Body Frame & Movement",
+        detailA: "Athletic, muscular back legs slightly longer than front for leaping.",
+        detailB: "Slender, lithe, arching neck and acrobatic semi-foreign body.",
+      },
+      {
+        category: "Special Behaviors",
+        detailA: "Fascinated by running water; often plays in sinks or showers.",
+        detailB: "Perpetually moving acrobat; loves perching on shoulders and high shelves.",
+      },
+    ],
+    faq: [
+      {
+        question: "How do the activity levels of Bengals and Abyssinians compare?",
+        answer:
+          "Both breeds are ranked at the highest end of feline energy levels. Bengals are powerful, muscular jumpers with strong prey drive, while Abyssinians are nimble, inquisitive gymnasts who want to be involved in every household activity.",
+      },
+      {
+        question: "Which breed is easier to groom: Bengal or Abyssinian?",
+        answer:
+          "Both have low-maintenance short coats that shed minimally. A weekly brushing or gentle wipe with a damp chamois cloth is all that is required to keep their coats shining.",
+      },
+    ],
   },
   {
     slugA: "ragdoll",
     slugB: "birman",
     title: "Ragdoll vs. Birman",
     highlightDifference: "White Mittens & Scale (Large floppy frame vs. Medium temple cat with strict gloves)",
+    summary:
+      "Comparing the Ragdoll and Birman: both share colorpoint coats, vivid blue eyes, and tranquil temperaments, but the Ragdoll is a large, heavy-boned cat with colorpoint, mitted, or bicolor patterns, whereas the Birman is a medium temple cat with a Roman arched nose and mandatory pure white gloves on all four paws.",
+    keyDifferences: [
+      {
+        category: "Paw Markings Standard",
+        detailA: "Can be pointed (no white), mitted (white boots), or bicolor (inverted 'V').",
+        detailB: "Must strictly display symmetrical white gloves in front and laces behind.",
+      },
+      {
+        category: "Size & Bone Structure",
+        detailA: "Large, heavy-boned build (10–20 lbs) with soft yielding muscle tone.",
+        detailB: "Medium, stocky build (7–14 lbs) with rounded contours.",
+      },
+      {
+        category: "Nose Profile",
+        detailA: "Flat plane between ears with a gentle nasal dip.",
+        detailB: "Distinct Roman arched nose with convex curvature and strong chin.",
+      },
+    ],
+    faq: [
+      {
+        question: "How can you tell a mitted Ragdoll apart from a Birman?",
+        answer:
+          "Observe the facial profile and scale: Birmans have a convex Roman arched nose and are noticeably smaller (7–14 lbs). Ragdolls are larger (10–20 lbs) and have a flat plane between the ears with a gentle nasal dip.",
+      },
+      {
+        question: "Are Birmans and Ragdolls genetically related?",
+        answer:
+          "Yes. Traditional Birmans were among the foundation breeds utilized during the 1960s in California to develop the Ragdoll breed, which accounts for their shared pointed coats and gentle personalities.",
+      },
+    ],
   },
   {
     slugA: "sphynx",
     slugB: "devon-rex",
     title: "Sphynx vs. Devon Rex",
     highlightDifference: "Coat Presence (Warm chamois down vs. Rippled curly rexed fur)",
+    summary:
+      "Comparing the Sphynx and Devon Rex: both are warm, affectionate, elfin companion cats, but the Sphynx is hairless to the eye with peach-fuzz skin requiring regular sponge baths, while the Devon Rex features a short, rippling wavy coat with fragile curls that require minimal brushing.",
+    keyDifferences: [
+      {
+        category: "Coat Presence & Texture",
+        detailA: "Fine downy peach fuzz over warm, wrinkled chamois skin.",
+        detailB: "Fine, soft, short wavy coat with ripples ('rexing') and guard hairs.",
+      },
+      {
+        category: "Ear Placement & Head",
+        detailA: "Extremely large, upright bat-like ears wide at base.",
+        detailB: "Enormous butterfly-like ears set low on skull with wide flared bases.",
+      },
+      {
+        category: "Grooming Routine",
+        detailA: "Weekly sponge baths to remove natural body oils, plus ear cleaning.",
+        detailB: "Gentle wipe-downs; avoid harsh brushing that breaks delicate curls.",
+      },
+    ],
+    faq: [
+      {
+        question: "Are Sphynx and Devon Rex cats genetically related?",
+        answer:
+          "While Devon Rex cats were used in early outcross programs to expand the Sphynx gene pool, their coat characteristics are caused by completely different genetic mutations (hr gene for Sphynx, re gene for Devon Rex).",
+      },
+      {
+        question: "Which breed feels warmer to touch: Sphynx or Devon Rex?",
+        answer:
+          "Both feel remarkably warm because their lack of heavy fur allows direct body heat to radiate. Sphynx cats feel like warm suede or a peach, while Devon Rex cats feel like warm velour.",
+      },
+    ],
   },
   {
     slugA: "russian-blue",
     slugB: "british-shorthair",
     title: "Russian Blue vs. British Shorthair",
     highlightDifference: "Body Geometry & Eyes (Emerald lithe athlete vs. Heavy copper-eyed cobby build)",
+    summary:
+      "Comparing the Russian Blue and British Shorthair: two famous blue felines. The Russian Blue is a lithe, fine-boned athlete with a shimmering silver-tipped double coat and vivid emerald-green eyes, while the British Shorthair is a stocky, heavy-boned teddy-bear cat with a crisp plush coat and iconic copper-amber eyes.",
+    keyDifferences: [
+      {
+        category: "Eye Color Standard",
+        detailA: "Vivid, luminous emerald-green eyes, round and wide set.",
+        detailB: "Iconic deep copper, gold, or amber round eyes in blue coats.",
+      },
+      {
+        category: "Body Geometry",
+        detailA: "Semi-foreign, lithe, graceful body with long tapering legs.",
+        detailB: "Compact, heavy 'cobby' body structure with short stout legs.",
+      },
+      {
+        category: "Coat Texture & Sheen",
+        detailA: "Dense double coat with silver-tipped guard hairs creating a metallic sheen.",
+        detailB: "Dense, crisp plush coat that parts cleanly over muscle curves.",
+      },
+    ],
+    faq: [
+      {
+        question: "Can a solid blue British Shorthair have green eyes?",
+        answer:
+          "No. According to official breed standards, solid blue British Shorthairs must display deep copper or amber eyes. Only certain silver tabby or shaded variants have green eyes, whereas all purebred Russian Blues have vivid green eyes.",
+      },
+      {
+        question: "Which breed sheds less: Russian Blue or British Shorthair?",
+        answer:
+          "Russian Blues naturally shed moderately and produce lower Fel d 1 protein levels, whereas the British Shorthair's dense undercoat produces more seasonal shedding requiring regular weekly brushing.",
+      },
+    ],
   },
   {
     slugA: "persian",
     slugB: "exotic-shorthair",
     title: "Persian vs. Exotic Shorthair",
     highlightDifference: "Coat Length & Maintenance (Flowing longhair vs. Low-maintenance plush shorthair)",
+    summary:
+      "Comparing the Persian and Exotic Shorthair: these sister breeds share the same calm, sweet temperament, round skull, and flat brachycephalic facial structure, with one fundamental difference—the Persian boasts a flowing full-length longhair coat, while the Exotic Shorthair features a low-maintenance, plush velvet short coat.",
+    keyDifferences: [
+      {
+        category: "Coat Length & Shedding",
+        detailA: "Extremely dense, flowing, full-length double coat with massive ruff.",
+        detailB: "Thick, plush, dense short coat standing out like velvet.",
+      },
+      {
+        category: "Grooming Requirement",
+        detailA: "Daily 10–15 minute comb through with steel comb to prevent matting.",
+        detailB: "Weekly brushing with slicker brush; coat rarely knots.",
+      },
+      {
+        category: "Facial Care",
+        detailA: "Daily eye wiping to clean nasolacrimal drainage folds.",
+        detailB: "Daily eye wiping to clean nasolacrimal drainage folds.",
+      },
+    ],
+    faq: [
+      {
+        question: "Are Persian and Exotic Shorthair personalities the same?",
+        answer:
+          "Yes. Both are tranquil, sweet-tempered, and quiet companions that love lounging in calm household environments, though Exotics are occasionally reported to be slightly more energetic.",
+      },
+      {
+        question: "Can two Exotic Shorthairs produce a longhaired Persian kitten?",
+        answer:
+          "Yes. Because the longhair gene is recessive, two shorthaired Exotics carrying the recessive longhair allele can produce longhaired offspring, often registered as Exotic Longhairs or Persians.",
+      },
+    ],
   },
   {
     slugA: "scottish-fold",
     slugB: "british-shorthair",
     title: "Scottish Fold vs. British Shorthair",
     highlightDifference: "Ear Structure & Silhouette (Forward-folded owl ears vs. Open rounded upright ears)",
+    summary:
+      "Comparing the Scottish Fold and British Shorthair: while both breeds have sturdy cobby builds, dense plush coats, and sweet round facial silhouettes, the Scottish Fold is distinguished by its owl-like forward-folded ears, whereas the British Shorthair has upright, rounded-tip ears set wide apart.",
+    keyDifferences: [
+      {
+        category: "Ear Conformation",
+        detailA: "Tightly folded forward and downward against the skull.",
+        detailB: "Small, rounded at tips, set far apart and upright on head contour.",
+      },
+      {
+        category: "Health & Breeding Rules",
+        detailA: "Must be outcrossed with straight-eared cats to prevent osteochondrodysplasia.",
+        detailB: "Naturally robust pedigree breed with no cartilage defect risks.",
+      },
+      {
+        category: "Sitting Posture",
+        detailA: "Frequently sits in comical 'Buddha' or prairie-dog stances.",
+        detailB: "Prefers lounging on all fours or resting beside family members.",
+      },
+    ],
+    faq: [
+      {
+        question: "Are Scottish Folds related to British Shorthairs?",
+        answer:
+          "Yes. British Shorthairs were extensively used as outcross partners to establish the Scottish Fold breed, which is why both share round cheeks, sturdy frames, and dense plush coats.",
+      },
+      {
+        question: "Are all Scottish Fold kittens born with folded ears?",
+        answer:
+          "No. All Scottish Fold kittens are born with normal straight ears. Folding only begins to develop around 3 to 4 weeks of age in kittens carrying the Fd gene.",
+      },
+    ],
   },
 ];
 
@@ -1119,6 +1538,14 @@ export function getBreedBySlug(slug: string): BreedData | undefined {
   return POPULAR_BREEDS.find((b) => b.slug.toLowerCase() === normalized);
 }
 
+export function getCuratedComparison(slugA: string, slugB: string): CuratedComparison | undefined {
+  return CURATED_COMPARISONS.find(
+    (c) =>
+      (c.slugA === slugA && c.slugB === slugB) ||
+      (c.slugA === slugB && c.slugB === slugA)
+  );
+}
+
 export function getBreedSlug(breedNameOrId: string): string {
   const match = getBreedById(breedNameOrId);
   if (match) return match.slug;
@@ -1127,6 +1554,19 @@ export function getBreedSlug(breedNameOrId: string): string {
 
 export function getAllBreedSlugs(): string[] {
   return POPULAR_BREEDS.map((b) => b.slug);
+}
+
+export function getAllComparisonParams(): string[] {
+  const slugs = getAllBreedSlugs();
+  const pairs: string[] = [];
+  for (let i = 0; i < slugs.length; i++) {
+    for (let j = 0; j < slugs.length; j++) {
+      if (i !== j) {
+        pairs.push(`${slugs[i]}-vs-${slugs[j]}`);
+      }
+    }
+  }
+  return pairs;
 }
 
 export function getSimilarBreeds(slug: string): BreedData[] {

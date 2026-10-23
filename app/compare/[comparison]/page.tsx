@@ -23,6 +23,8 @@ import {
   CURATED_COMPARISONS,
   getComparisonPair,
   getBreedBySlug,
+  getCuratedComparison,
+  getAllComparisonParams,
 } from "@/lib/data/breeds";
 import { getSiteUrl } from "@/lib/config/site";
 
@@ -30,9 +32,11 @@ interface PageProps {
   params: Promise<{ comparison: string }>;
 }
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
-  return CURATED_COMPARISONS.map((c) => ({
-    comparison: `${c.slugA}-vs-${c.slugB}`,
+  return getAllComparisonParams().map((comparison) => ({
+    comparison,
   }));
 }
 
@@ -45,16 +49,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const { breedA, breedB } = pair;
+  const curated = getCuratedComparison(breedA.slug, breedB.slug);
+  const description =
+    curated?.summary ||
+    `Compare ${breedA.name} vs ${breedB.name} side-by-side. Detailed breakdown of size, coat texture, facial structure, personality, grooming needs, and visual identification differences.`;
 
   return {
     title: `${breedA.name} vs. ${breedB.name}: Full Comparison & Differences | CatAnalyzer`,
-    description: `Compare ${breedA.name} vs ${breedB.name} side-by-side. Detailed breakdown of size, coat texture, facial structure, personality, grooming needs, and visual identification differences.`,
+    description,
     alternates: {
       canonical: `/compare/${breedA.slug}-vs-${breedB.slug}`,
     },
     openGraph: {
       title: `${breedA.name} vs. ${breedB.name} — Breed Comparison Guide`,
-      description: `Discover how the ${breedA.name} and ${breedB.name} differ in appearance, temperament, and care requirements.`,
+      description,
       images: [breedA.imageUrl, breedB.imageUrl],
       type: "article",
     },
@@ -70,6 +78,7 @@ export default async function ComparisonDetailPage({ params }: PageProps) {
   }
 
   const { breedA, breedB } = pair;
+  const curated = getCuratedComparison(breedA.slug, breedB.slug);
 
   // Find other curated comparisons involving either breed
   const otherComparisons = CURATED_COMPARISONS.filter(
@@ -84,13 +93,8 @@ export default async function ComparisonDetailPage({ params }: PageProps) {
   const siteUrl = getSiteUrl();
 
   // Structured Data (JSON-LD)
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: `${breedA.name} vs. ${breedB.name} Comparison`,
-    description: `Comprehensive side-by-side comparison of ${breedA.name} and ${breedB.name} cat breeds.`,
-    url: `${siteUrl}/compare/${breedA.slug}-vs-${breedB.slug}`,
-    breadcrumb: {
+  const jsonLdGraph: Array<Record<string, unknown>> = [
+    {
       "@type": "BreadcrumbList",
       itemListElement: [
         {
@@ -113,6 +117,34 @@ export default async function ComparisonDetailPage({ params }: PageProps) {
         },
       ],
     },
+    {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/compare/${breedA.slug}-vs-${breedB.slug}`,
+      name: `${breedA.name} vs. ${breedB.name} Comparison`,
+      description:
+        curated?.summary ||
+        `Comprehensive side-by-side comparison of ${breedA.name} and ${breedB.name} cat breeds.`,
+      url: `${siteUrl}/compare/${breedA.slug}-vs-${breedB.slug}`,
+    },
+  ];
+
+  if (curated?.faq && curated.faq.length > 0) {
+    jsonLdGraph.push({
+      "@type": "FAQPage",
+      mainEntity: curated.faq.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+    });
+  }
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": jsonLdGraph,
   };
 
   const comparisonRows = [
@@ -219,8 +251,18 @@ export default async function ComparisonDetailPage({ params }: PageProps) {
             </h1>
 
             <p className="text-base sm:text-lg text-stone-600 max-w-3xl leading-relaxed">
-              Comparing the {breedA.name} and {breedB.name}: learn how their coat care, physical dimensions, face shapes, and behavioral energy differ so you can accurately identify your cat or select the best companion for your home.
+              {curated?.summary ||
+                `Comparing the ${breedA.name} and ${breedB.name}: learn how their coat care, physical dimensions, face shapes, and behavioral energy differ so you can accurately identify your cat or select the best companion for your home.`}
             </p>
+
+            {curated?.highlightDifference && (
+              <div className="inline-flex items-center gap-2 rounded-2xl bg-brand-50 border border-brand-200/80 px-4 py-2.5 text-xs sm:text-sm text-brand-900 font-medium">
+                <Sparkles className="h-4 w-4 text-brand-600 shrink-0 fill-current" />
+                <span>
+                  <strong>Key Distinction:</strong> {curated.highlightDifference}
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Dual Side-by-Side Breed Cards */}
@@ -340,50 +382,81 @@ export default async function ComparisonDetailPage({ params }: PageProps) {
 
         {/* Key Differences Breakdown */}
         <section className="space-y-6">
-          <h2 className="text-2xl font-bold text-stone-900">
-            Key Differences Explained
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {/* Visual Markers */}
-            <Card className="p-6 border-stone-200 bg-white space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-600">
-                1. Visual Phenotype
-              </span>
-              <h3 className="text-lg font-bold text-stone-900">
-                Facial Geometry & Head Shape
-              </h3>
-              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                The {breedA.name} displays <strong>{breedA.appearance.faceShape}</strong>, whereas the {breedB.name} exhibits <strong>{breedB.appearance.faceShape}</strong>. Observe the ear orientation and eye contours to spot the differences instantly.
-              </p>
-            </Card>
-
-            {/* Coat Care */}
-            <Card className="p-6 border-stone-200 bg-white space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-600">
-                2. Coat Maintenance
-              </span>
-              <h3 className="text-lg font-bold text-stone-900">
-                Grooming & Shedding
-              </h3>
-              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                {breedA.name} requires {breedA.care.groomingFrequency.toLowerCase()}. In contrast, the {breedB.name} requires {breedB.care.groomingFrequency.toLowerCase()}.
-              </p>
-            </Card>
-
-            {/* Temperament */}
-            <Card className="p-6 border-stone-200 bg-white space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-600">
-                3. Energy & Noise
-              </span>
-              <h3 className="text-lg font-bold text-stone-900">
-                Activity & Vocalization
-              </h3>
-              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                {breedA.name} is rated as <strong>{breedA.traits.activityLevel}</strong> energy with <strong>{breedA.traits.vocalizationLevel}</strong> vocal presence. {breedB.name} is <strong>{breedB.traits.activityLevel}</strong> energy and <strong>{breedB.traits.vocalizationLevel}</strong> vocal.
-              </p>
-            </Card>
+          <div className="space-y-1">
+            <h2 className="text-2xl font-bold text-stone-900">
+              Key Differences Explained
+            </h2>
+            <p className="text-sm text-stone-500">
+              Core phenotypic, behavioral, and maintenance contrasts between the {breedA.name} and {breedB.name}.
+            </p>
           </div>
+
+          {curated?.keyDifferences && curated.keyDifferences.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {curated.keyDifferences.map((diff, idx) => (
+                <Card key={idx} className="p-6 border-stone-200 bg-white space-y-3">
+                  <span className="text-xs font-bold uppercase tracking-wider text-brand-600">
+                    {idx + 1}. {diff.category}
+                  </span>
+                  <div className="space-y-2 text-xs sm:text-sm">
+                    <div className="rounded-xl bg-brand-50/50 border border-brand-100 p-2.5">
+                      <strong className="text-brand-900 block font-semibold mb-0.5">
+                        {breedA.name}:
+                      </strong>
+                      <span className="text-stone-700">{diff.detailA}</span>
+                    </div>
+                    <div className="rounded-xl bg-stone-50 border border-stone-200/80 p-2.5">
+                      <strong className="text-stone-900 block font-semibold mb-0.5">
+                        {breedB.name}:
+                      </strong>
+                      <span className="text-stone-700">{diff.detailB}</span>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {/* Visual Markers */}
+              <Card className="p-6 border-stone-200 bg-white space-y-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-600">
+                  1. Visual Phenotype
+                </span>
+                <h3 className="text-lg font-bold text-stone-900">
+                  Facial Geometry & Head Shape
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  The {breedA.name} displays <strong>{breedA.appearance.faceShape}</strong>, whereas the {breedB.name} exhibits <strong>{breedB.appearance.faceShape}</strong>. Observe the ear orientation and eye contours to spot the differences instantly.
+                </p>
+              </Card>
+
+              {/* Coat Care */}
+              <Card className="p-6 border-stone-200 bg-white space-y-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-600">
+                  2. Coat Maintenance
+                </span>
+                <h3 className="text-lg font-bold text-stone-900">
+                  Grooming & Shedding
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  {breedA.name} requires {breedA.care.groomingFrequency.toLowerCase()}. In contrast, the {breedB.name} requires {breedB.care.groomingFrequency.toLowerCase()}.
+                </p>
+              </Card>
+
+              {/* Temperament */}
+              <Card className="p-6 border-stone-200 bg-white space-y-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-600">
+                  3. Energy & Noise
+                </span>
+                <h3 className="text-lg font-bold text-stone-900">
+                  Activity & Vocalization
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                  {breedA.name} is rated as <strong>{breedA.traits.activityLevel}</strong> energy with <strong>{breedA.traits.vocalizationLevel}</strong> vocal presence. {breedB.name} is <strong>{breedB.traits.activityLevel}</strong> energy and <strong>{breedB.traits.vocalizationLevel}</strong> vocal.
+                </p>
+              </Card>
+            </div>
+          )}
         </section>
 
         {/* Visual Identification Cheat Sheet */}
@@ -472,6 +545,31 @@ export default async function ComparisonDetailPage({ params }: PageProps) {
             </div>
           </div>
         </section>
+
+        {/* Section: Frequently Asked Questions */}
+        {curated?.faq && curated.faq.length > 0 && (
+          <section className="space-y-4">
+            <div className="flex items-center gap-2">
+              <HelpCircle className="h-5 w-5 text-brand-600" />
+              <h2 className="text-2xl font-bold text-stone-900">
+                Frequently Asked Questions: {breedA.name} vs. {breedB.name}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {curated.faq.map((item, idx) => (
+                <Card key={idx} className="p-5 border-stone-200 bg-white space-y-2 shadow-2xs">
+                  <h3 className="text-sm font-bold text-stone-900 leading-snug">
+                    {item.question}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
+                    {item.answer}
+                  </p>
+                </Card>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Scanner CTA */}
         <section className="bg-gradient-to-br from-brand-500 via-brand-600 to-stone-900 rounded-3xl p-8 sm:p-12 text-white shadow-soft space-y-4">

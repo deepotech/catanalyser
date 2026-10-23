@@ -5,12 +5,21 @@
 
 export function getSiteUrl(): string {
   const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (envUrl && envUrl.length > 0) {
+
+  // Ignore localhost/127.0.0.1 values so a developer's .env.local does not
+  // override the production canonical URL during a production build.
+  const isLocalDev =
+    !envUrl ||
+    envUrl.includes("localhost") ||
+    envUrl.includes("127.0.0.1");
+
+  if (!isLocalDev) {
     // Strip trailing slash if present
-    return envUrl.replace(/\/+$/, "");
+    return envUrl!.replace(/\/+$/, "");
   }
 
-  // Production default fallback
+  // Production default fallback (used when NEXT_PUBLIC_SITE_URL is absent or
+  // points to localhost, as happens when building with a dev .env.local file).
   if (process.env.NODE_ENV === "production") {
     return "https://catanalyzer.com";
   }
