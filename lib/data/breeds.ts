@@ -67,7 +67,7 @@ export const POPULAR_BREEDS: BreedData[] = [
       "The Maine Coon is a majestic, rugged native North American cat breed renowned for its substantial physical scale and gentle demeanor. Adapted to survive harsh northeastern winters, it possesses a water-repellent double coat, large snowshoe paws with heavy tufting, and prominent lynx tips on its ears. Despite its imposing size, the Maine Coon is celebrated as a peaceful, dog-like companion that interacts warmly with families and other pets.",
     origin: "United States (Maine)",
     size: "Very Large",
-    weightRange: "11 – 25 lbs (5 – 11.3 kg)",
+    weightRange: "10 – 25 lbs (4.5 – 11.3 kg)",
     lifespan: "12 – 15 years",
     appearance: {
       coatLength: "Semi-Longhair",
@@ -211,7 +211,7 @@ export const POPULAR_BREEDS: BreedData[] = [
       "Originating from ancient Thailand (formerly Siam), the Siamese is one of the most recognizable and historic feline breeds. Renowned for their lean tubular body, distinctive dark extremities (points), and communicative nature, Siamese cats form profound social attachments with their owners and will vocalize their thoughts throughout the day.",
     origin: "Thailand",
     size: "Medium",
-    weightRange: "6 – 14 lbs (2.7 – 6.4 kg)",
+    weightRange: "5 – 12 lbs (2.3 – 5.4 kg)",
     lifespan: "15 – 20 years",
     appearance: {
       coatLength: "Shorthair",
@@ -412,7 +412,7 @@ export const POPULAR_BREEDS: BreedData[] = [
       "The British Shorthair is the pedigree version of the traditional British domestic cat. Recognized by its compact 'cobby' build, round cheeks, and thick, plush coat, this breed has a famously calm, quiet disposition. They are independent yet deeply loyal companions who prefer lounging beside you rather than being carried around.",
     origin: "United Kingdom",
     size: "Medium",
-    weightRange: "7 – 17 lbs (3.2 – 7.7 kg)",
+    weightRange: "8 – 17 lbs (3.6 – 7.7 kg)",
     lifespan: "12 – 17 years",
     appearance: {
       coatLength: "Shorthair",
@@ -618,7 +618,7 @@ export const POPULAR_BREEDS: BreedData[] = [
       "The Norwegian Forest Cat (or Skogkatt) is an ancient Scandinavian forest dweller steeped in Norse mythology. Built to endure harsh Nordic winters, it features a water-repellent topcoat over a dense woolly undercoat, heavy tufted paws, and an equilateral triangular head profile with a dead-straight nose line. Strong, independent, and gentle, they are legendary climbers.",
     origin: "Norway",
     size: "Large",
-    weightRange: "9 – 18 lbs (4 – 8.2 kg)",
+    weightRange: "8 – 18 lbs (3.6 – 8.2 kg)",
     lifespan: "12 – 16 years",
     appearance: {
       coatLength: "Semi-Longhair",
@@ -680,7 +680,7 @@ export const POPULAR_BREEDS: BreedData[] = [
       "Descended from mouser cats brought over on European ships (including the Mayflower) to protect cargo from rodents, the American Shorthair is a true working breed. Solidly built with a sweet expression and low-maintenance coat, this breed is adaptable, athletic, and famously healthy.",
     origin: "United States",
     size: "Medium",
-    weightRange: "7 – 15 lbs (3.2 – 6.8 kg)",
+    weightRange: "6 – 15 lbs (2.7 – 6.8 kg)",
     lifespan: "15 – 20 years",
     appearance: {
       coatLength: "Shorthair",
@@ -819,7 +819,7 @@ export const POPULAR_BREEDS: BreedData[] = [
       "Steeped in temple folklore from Myanmar (Burma), the Sacred Cat of Burma is famous for its harmonious golden-mist coat, colorpoint extremities, and trademark pure white paws known as 'gloves' and 'laces'. With a soft chirping voice and sweet, devoted disposition, Birmans are adored for their tranquil companionship.",
     origin: "Myanmar (Burma) / France",
     size: "Medium",
-    weightRange: "7 – 14 lbs (3.2 – 6.4 kg)",
+    weightRange: "6 – 15 lbs (2.7 – 6.8 kg)",
     lifespan: "12 – 16 years",
     appearance: {
       coatLength: "Semi-Longhair",
@@ -1010,7 +1010,7 @@ export const POPULAR_BREEDS: BreedData[] = [
       "Developed to create a shorthaired version of the Persian, the Exotic Shorthair possesses the exact same brachycephalic flat muzzle, chubby cheeks, and calm personality, but in an easy-to-maintain plush short coat. Nicknamed 'the lazy man's Persian', it offers luxury looks without daily coat combing.",
     origin: "United States",
     size: "Medium",
-    weightRange: "7 – 13 lbs (3.2 – 5.9 kg)",
+    weightRange: "6 – 14 lbs (2.7 – 6.4 kg)",
     lifespan: "12 – 15 years",
     appearance: {
       coatLength: "Shorthair",
@@ -1354,7 +1354,7 @@ export const CURATED_COMPARISONS: CuratedComparison[] = [
       {
         category: "Size & Bone Structure",
         detailA: "Large, heavy-boned build (10–20 lbs) with soft yielding muscle tone.",
-        detailB: "Medium, stocky build (7–14 lbs) with rounded contours.",
+        detailB: "Medium, stocky build (6–15 lbs) with rounded contours.",
       },
       {
         category: "Nose Profile",
@@ -1557,16 +1557,7 @@ export function getAllBreedSlugs(): string[] {
 }
 
 export function getAllComparisonParams(): string[] {
-  const slugs = getAllBreedSlugs();
-  const pairs: string[] = [];
-  for (let i = 0; i < slugs.length; i++) {
-    for (let j = 0; j < slugs.length; j++) {
-      if (i !== j) {
-        pairs.push(`${slugs[i]}-vs-${slugs[j]}`);
-      }
-    }
-  }
-  return pairs;
+  return CURATED_COMPARISONS.map((comp) => `${comp.slugA}-vs-${comp.slugB}`);
 }
 
 export function getSimilarBreeds(slug: string): BreedData[] {

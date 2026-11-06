@@ -4,7 +4,7 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRight, ArrowLeftRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { BreedData } from "@/lib/data/breeds";
+import { BreedData, CURATED_COMPARISONS } from "@/lib/data/breeds";
 
 interface ComparePickerProps {
   breeds: BreedData[];
@@ -23,6 +23,17 @@ export function ComparePicker({
 
   const isSameBreed = slugA === slugB;
 
+  const curatedDestination = React.useMemo(() => {
+    if (slugA === slugB) return null;
+    const direct = CURATED_COMPARISONS.find((c) => c.slugA === slugA && c.slugB === slugB);
+    if (direct) return `/compare/${direct.slugA}-vs-${direct.slugB}`;
+    const reverse = CURATED_COMPARISONS.find((c) => c.slugA === slugB && c.slugB === slugA);
+    if (reverse) return `/compare/${reverse.slugA}-vs-${reverse.slugB}`;
+    return null;
+  }, [slugA, slugB]);
+
+  const isCurated = Boolean(curatedDestination);
+
   const handleSwap = () => {
     const temp = slugA;
     setSlugA(slugB);
@@ -31,8 +42,8 @@ export function ComparePicker({
 
   const handleCompare = (e: React.FormEvent) => {
     e.preventDefault();
-    if (isSameBreed) return;
-    router.push(`/compare/${slugA}-vs-${slugB}`);
+    if (isSameBreed || !curatedDestination) return;
+    router.push(curatedDestination);
   };
 
   return (
@@ -103,14 +114,20 @@ export function ComparePicker({
         </p>
       )}
 
+      {!isSameBreed && !isCurated && (
+        <p className="text-xs text-amber-600 font-medium text-center bg-amber-50 py-2 px-3 rounded-xl border border-amber-200">
+          This specific pairing has not been curated yet. Please select one of our 10 curated matchups below.
+        </p>
+      )}
+
       <div className="pt-2 flex justify-end">
         <Button
           type="submit"
-          disabled={isSameBreed}
+          disabled={isSameBreed || !isCurated}
           size="lg"
           className="w-full sm:w-auto font-bold gap-2 shadow-sm"
         >
-          Compare Breeds Side-by-Side
+          {isCurated ? "Compare Breeds Side-by-Side" : "Curated Matchup Needed"}
           <ArrowRight className="h-4 w-4" />
         </Button>
       </div>

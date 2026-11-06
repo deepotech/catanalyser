@@ -1,0 +1,1527 @@
+{
+  "timestamp": "2026-11-06T17:12:24.023Z",
+  "host": "http://localhost:3000",
+  "summary": {
+    "totalComparisonUrlsTested": 240,
+    "curatedCount": 10,
+    "reverseRedirectCount": 10,
+    "prunedCount": 220,
+    "allPassing": true
+  },
+  "curatedUrls": [
+    {
+      "url": "/compare/maine-coon-vs-norwegian-forest-cat",
+      "status": 200,
+      "canonical": "https://catanalyzer.com/compare/maine-coon-vs-norwegian-forest-cat",
+      "hasSelfCanonical": true,
+      "robots": "index, follow",
+      "hasFaqSchema": true,
+      "pass": true
+    },
+    {
+      "url": "/compare/maine-coon-vs-ragdoll",
+      "status": 200,
+      "canonical": "https://catanalyzer.com/compare/maine-coon-vs-ragdoll",
+      "hasSelfCanonical": true,
+      "robots": "index, follow",
+      "hasFaqSchema": true,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-ragdoll",
+      "status": 200,
+      "canonical": "https://catanalyzer.com/compare/siamese-vs-ragdoll",
+      "hasSelfCanonical": true,
+      "robots": "index, follow",
+      "hasFaqSchema": true,
+      "pass": true
+    },
+    {
+      "url": "/compare/british-shorthair-vs-persian",
+      "status": 200,
+      "canonical": "https://catanalyzer.com/compare/british-shorthair-vs-persian",
+      "hasSelfCanonical": true,
+      "robots": "index, follow",
+      "hasFaqSchema": true,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-abyssinian",
+      "status": 200,
+      "canonical": "https://catanalyzer.com/compare/bengal-vs-abyssinian",
+      "hasSelfCanonical": true,
+      "robots": "index, follow",
+      "hasFaqSchema": true,
+      "pass": true
+    },
+    {
+      "url": "/compare/ragdoll-vs-birman",
+      "status": 200,
+      "canonical": "https://catanalyzer.com/compare/ragdoll-vs-birman",
+      "hasSelfCanonical": true,
+      "robots": "index, follow",
+      "hasFaqSchema": true,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-devon-rex",
+      "status": 200,
+      "canonical": "https://catanalyzer.com/compare/sphynx-vs-devon-rex",
+      "hasSelfCanonical": true,
+      "robots": "index, follow",
+      "hasFaqSchema": true,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-british-shorthair",
+      "status": 200,
+      "canonical": "https://catanalyzer.com/compare/russian-blue-vs-british-shorthair",
+      "hasSelfCanonical": true,
+      "robots": "index, follow",
+      "hasFaqSchema": true,
+      "pass": true
+    },
+    {
+      "url": "/compare/persian-vs-exotic-shorthair",
+      "status": 200,
+      "canonical": "https://catanalyzer.com/compare/persian-vs-exotic-shorthair",
+      "hasSelfCanonical": true,
+      "robots": "index, follow",
+      "hasFaqSchema": true,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-british-shorthair",
+      "status": 200,
+      "canonical": "https://catanalyzer.com/compare/scottish-fold-vs-british-shorthair",
+      "hasSelfCanonical": true,
+      "robots": "index, follow",
+      "hasFaqSchema": true,
+      "pass": true
+    }
+  ],
+  "reverseRedirects": [
+    {
+      "fromUrl": "/compare/norwegian-forest-cat-vs-maine-coon",
+      "toUrl": "/compare/maine-coon-vs-norwegian-forest-cat",
+      "status": 301,
+      "locationHeader": "/compare/maine-coon-vs-norwegian-forest-cat",
+      "cleanLocation": "/compare/maine-coon-vs-norwegian-forest-cat",
+      "destinationStatus": 200,
+      "directNoChain": true,
+      "pass": true
+    },
+    {
+      "fromUrl": "/compare/ragdoll-vs-maine-coon",
+      "toUrl": "/compare/maine-coon-vs-ragdoll",
+      "status": 301,
+      "locationHeader": "/compare/maine-coon-vs-ragdoll",
+      "cleanLocation": "/compare/maine-coon-vs-ragdoll",
+      "destinationStatus": 200,
+      "directNoChain": true,
+      "pass": true
+    },
+    {
+      "fromUrl": "/compare/ragdoll-vs-siamese",
+      "toUrl": "/compare/siamese-vs-ragdoll",
+      "status": 301,
+      "locationHeader": "/compare/siamese-vs-ragdoll",
+      "cleanLocation": "/compare/siamese-vs-ragdoll",
+      "destinationStatus": 200,
+      "directNoChain": true,
+      "pass": true
+    },
+    {
+      "fromUrl": "/compare/persian-vs-british-shorthair",
+      "toUrl": "/compare/british-shorthair-vs-persian",
+      "status": 301,
+      "locationHeader": "/compare/british-shorthair-vs-persian",
+      "cleanLocation": "/compare/british-shorthair-vs-persian",
+      "destinationStatus": 200,
+      "directNoChain": true,
+      "pass": true
+    },
+    {
+      "fromUrl": "/compare/abyssinian-vs-bengal",
+      "toUrl": "/compare/bengal-vs-abyssinian",
+      "status": 301,
+      "locationHeader": "/compare/bengal-vs-abyssinian",
+      "cleanLocation": "/compare/bengal-vs-abyssinian",
+      "destinationStatus": 200,
+      "directNoChain": true,
+      "pass": true
+    },
+    {
+      "fromUrl": "/compare/birman-vs-ragdoll",
+      "toUrl": "/compare/ragdoll-vs-birman",
+      "status": 301,
+      "locationHeader": "/compare/ragdoll-vs-birman",
+      "cleanLocation": "/compare/ragdoll-vs-birman",
+      "destinationStatus": 200,
+      "directNoChain": true,
+      "pass": true
+    },
+    {
+      "fromUrl": "/compare/devon-rex-vs-sphynx",
+      "toUrl": "/compare/sphynx-vs-devon-rex",
+      "status": 301,
+      "locationHeader": "/compare/sphynx-vs-devon-rex",
+      "cleanLocation": "/compare/sphynx-vs-devon-rex",
+      "destinationStatus": 200,
+      "directNoChain": true,
+      "pass": true
+    },
+    {
+      "fromUrl": "/compare/british-shorthair-vs-russian-blue",
+      "toUrl": "/compare/russian-blue-vs-british-shorthair",
+      "status": 301,
+      "locationHeader": "/compare/russian-blue-vs-british-shorthair",
+      "cleanLocation": "/compare/russian-blue-vs-british-shorthair",
+      "destinationStatus": 200,
+      "directNoChain": true,
+      "pass": true
+    },
+    {
+      "fromUrl": "/compare/exotic-shorthair-vs-persian",
+      "toUrl": "/compare/persian-vs-exotic-shorthair",
+      "status": 301,
+      "locationHeader": "/compare/persian-vs-exotic-shorthair",
+      "cleanLocation": "/compare/persian-vs-exotic-shorthair",
+      "destinationStatus": 200,
+      "directNoChain": true,
+      "pass": true
+    },
+    {
+      "fromUrl": "/compare/british-shorthair-vs-scottish-fold",
+      "toUrl": "/compare/scottish-fold-vs-british-shorthair",
+      "status": 301,
+      "locationHeader": "/compare/scottish-fold-vs-british-shorthair",
+      "cleanLocation": "/compare/scottish-fold-vs-british-shorthair",
+      "destinationStatus": 200,
+      "directNoChain": true,
+      "pass": true
+    }
+  ],
+  "prunedUrls": [
+    {
+      "url": "/compare/maine-coon-vs-siamese",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/maine-coon-vs-persian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/maine-coon-vs-bengal",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/maine-coon-vs-british-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/maine-coon-vs-scottish-fold",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/maine-coon-vs-sphynx",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/maine-coon-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/maine-coon-vs-abyssinian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/maine-coon-vs-birman",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/maine-coon-vs-russian-blue",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/maine-coon-vs-devon-rex",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/maine-coon-vs-exotic-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/maine-coon-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/ragdoll-vs-persian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/ragdoll-vs-bengal",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/ragdoll-vs-british-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/ragdoll-vs-scottish-fold",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/ragdoll-vs-sphynx",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/ragdoll-vs-norwegian-forest-cat",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/ragdoll-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/ragdoll-vs-abyssinian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/ragdoll-vs-russian-blue",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/ragdoll-vs-devon-rex",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/ragdoll-vs-exotic-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/ragdoll-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-maine-coon",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-persian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-bengal",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-british-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-scottish-fold",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-sphynx",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-norwegian-forest-cat",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-abyssinian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-birman",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-russian-blue",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-devon-rex",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-exotic-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/siamese-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/persian-vs-maine-coon",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/persian-vs-ragdoll",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/persian-vs-siamese",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/persian-vs-bengal",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/persian-vs-scottish-fold",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/persian-vs-sphynx",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/persian-vs-norwegian-forest-cat",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/persian-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/persian-vs-abyssinian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/persian-vs-birman",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/persian-vs-russian-blue",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/persian-vs-devon-rex",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/persian-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-maine-coon",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-ragdoll",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-siamese",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-persian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-british-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-scottish-fold",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-sphynx",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-norwegian-forest-cat",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-birman",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-russian-blue",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-devon-rex",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-exotic-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/bengal-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/british-shorthair-vs-maine-coon",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/british-shorthair-vs-ragdoll",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/british-shorthair-vs-siamese",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/british-shorthair-vs-bengal",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/british-shorthair-vs-sphynx",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/british-shorthair-vs-norwegian-forest-cat",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/british-shorthair-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/british-shorthair-vs-abyssinian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/british-shorthair-vs-birman",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/british-shorthair-vs-devon-rex",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/british-shorthair-vs-exotic-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/british-shorthair-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-maine-coon",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-ragdoll",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-siamese",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-persian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-bengal",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-sphynx",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-norwegian-forest-cat",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-abyssinian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-birman",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-russian-blue",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-devon-rex",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-exotic-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/scottish-fold-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-maine-coon",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-ragdoll",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-siamese",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-persian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-bengal",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-british-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-scottish-fold",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-norwegian-forest-cat",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-abyssinian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-birman",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-russian-blue",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-exotic-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/sphynx-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/norwegian-forest-cat-vs-ragdoll",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/norwegian-forest-cat-vs-siamese",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/norwegian-forest-cat-vs-persian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/norwegian-forest-cat-vs-bengal",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/norwegian-forest-cat-vs-british-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/norwegian-forest-cat-vs-scottish-fold",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/norwegian-forest-cat-vs-sphynx",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/norwegian-forest-cat-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/norwegian-forest-cat-vs-abyssinian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/norwegian-forest-cat-vs-birman",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/norwegian-forest-cat-vs-russian-blue",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/norwegian-forest-cat-vs-devon-rex",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/norwegian-forest-cat-vs-exotic-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/norwegian-forest-cat-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-maine-coon",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-ragdoll",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-siamese",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-persian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-bengal",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-british-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-scottish-fold",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-sphynx",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-norwegian-forest-cat",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-abyssinian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-birman",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-russian-blue",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-devon-rex",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-exotic-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/american-shorthair-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/abyssinian-vs-maine-coon",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/abyssinian-vs-ragdoll",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/abyssinian-vs-siamese",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/abyssinian-vs-persian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/abyssinian-vs-british-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/abyssinian-vs-scottish-fold",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/abyssinian-vs-sphynx",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/abyssinian-vs-norwegian-forest-cat",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/abyssinian-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/abyssinian-vs-birman",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/abyssinian-vs-russian-blue",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/abyssinian-vs-devon-rex",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/abyssinian-vs-exotic-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/abyssinian-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/birman-vs-maine-coon",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/birman-vs-siamese",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/birman-vs-persian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/birman-vs-bengal",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/birman-vs-british-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/birman-vs-scottish-fold",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/birman-vs-sphynx",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/birman-vs-norwegian-forest-cat",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/birman-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/birman-vs-abyssinian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/birman-vs-russian-blue",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/birman-vs-devon-rex",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/birman-vs-exotic-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/birman-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-maine-coon",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-ragdoll",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-siamese",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-persian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-bengal",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-scottish-fold",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-sphynx",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-norwegian-forest-cat",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-abyssinian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-birman",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-devon-rex",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-exotic-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/russian-blue-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/devon-rex-vs-maine-coon",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/devon-rex-vs-ragdoll",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/devon-rex-vs-siamese",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/devon-rex-vs-persian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/devon-rex-vs-bengal",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/devon-rex-vs-british-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/devon-rex-vs-scottish-fold",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/devon-rex-vs-norwegian-forest-cat",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/devon-rex-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/devon-rex-vs-abyssinian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/devon-rex-vs-birman",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/devon-rex-vs-russian-blue",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/devon-rex-vs-exotic-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/devon-rex-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/exotic-shorthair-vs-maine-coon",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/exotic-shorthair-vs-ragdoll",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/exotic-shorthair-vs-siamese",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/exotic-shorthair-vs-bengal",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/exotic-shorthair-vs-british-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/exotic-shorthair-vs-scottish-fold",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/exotic-shorthair-vs-sphynx",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/exotic-shorthair-vs-norwegian-forest-cat",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/exotic-shorthair-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/exotic-shorthair-vs-abyssinian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/exotic-shorthair-vs-birman",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/exotic-shorthair-vs-russian-blue",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/exotic-shorthair-vs-devon-rex",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/exotic-shorthair-vs-turkish-angora",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-maine-coon",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-ragdoll",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-siamese",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-persian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-bengal",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-british-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-scottish-fold",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-sphynx",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-norwegian-forest-cat",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-american-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-abyssinian",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-birman",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-russian-blue",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-devon-rex",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    },
+    {
+      "url": "/compare/turkish-angora-vs-exotic-shorthair",
+      "status": 404,
+      "expectedStatus": 404,
+      "pass": true
+    }
+  ]
+}

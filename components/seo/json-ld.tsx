@@ -7,10 +7,14 @@ export function JsonLdSchemas() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
     name: "CatAnalyzer",
     url: siteUrl,
     description:
       "AI-powered cat breed identification and sound interpretation to help you understand your cat.",
+    publisher: {
+      "@id": `${siteUrl}/#organization`,
+    },
     potentialAction: {
       "@type": "SearchAction",
       target: `${siteUrl}/cat-breeds?q={search_term_string}`,
@@ -18,23 +22,15 @@ export function JsonLdSchemas() {
     },
   };
 
-  const webAppSchema = {
+  const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "CatAnalyzer AI Breed Identifier",
-    applicationCategory: "UtilitiesApplication",
-    operatingSystem: "All",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
-    featureList: [
-      "AI visual cat breed identification",
-      "Phenotypic trait explanation",
-      "Mixed-breed lineage estimation",
-      "Cat sound behavioral interpretation",
-    ],
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    name: "CatAnalyzer",
+    url: siteUrl,
+    logo: `${siteUrl}/icon.svg`,
+    description:
+      "AI-assisted feline phenotype identification and bioacoustic analysis platform.",
   };
 
   return (
@@ -45,7 +41,7 @@ export function JsonLdSchemas() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
     </>
   );

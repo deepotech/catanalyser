@@ -19,6 +19,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem } from "@/components/ui/accordion";
+import { getSiteUrl } from "@/lib/config/site";
 
 export const metadata: Metadata = {
   title: "Cat Translator — Understand Your Cat's Sounds with AI | CatAnalyzer",
@@ -103,14 +104,21 @@ const COMMON_SOUNDS = [
 ];
 
 export default function CatTranslatorPage() {
+  const siteUrl = getSiteUrl();
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "WebApplication",
+        "@id": `${siteUrl}/cat-translator#webapp`,
         name: "CatAnalyzer Cat Sound Interpreter",
         applicationCategory: "UtilitiesApplication",
         operatingSystem: "All",
+        url: `${siteUrl}/cat-translator`,
+        provider: {
+          "@id": `${siteUrl}/#organization`,
+        },
         offers: {
           "@type": "Offer",
           price: "0",

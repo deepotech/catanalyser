@@ -223,7 +223,7 @@ export default async function BreedDetailPage({ params }: PageProps) {
           </div>
           <div className="rounded-2xl border border-stone-200 bg-white p-4 text-center space-y-1 shadow-2xs">
             <span className="text-[11px] text-stone-400 uppercase tracking-wider font-bold">
-              Weight Range
+              Typical Adult Weight
             </span>
             <p className="text-sm font-bold text-stone-900 leading-snug">{breed.weightRange}</p>
           </div>

@@ -42,6 +42,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { comparison } = await params;
+  const isCuratedCanonical = CURATED_COMPARISONS.some(
+    (c) => `${c.slugA}-vs-${c.slugB}` === comparison
+  );
+  if (!isCuratedCanonical) {
+    notFound();
+  }
+
   const pair = getComparisonPair(comparison);
 
   if (!pair) {
@@ -60,6 +67,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `/compare/${breedA.slug}-vs-${breedB.slug}`,
     },
+    robots: {
+      index: true,
+      follow: true,
+    },
     openGraph: {
       title: `${breedA.name} vs. ${breedB.name} — Breed Comparison Guide`,
       description,
@@ -71,6 +82,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ComparisonDetailPage({ params }: PageProps) {
   const { comparison } = await params;
+  const isCuratedCanonical = CURATED_COMPARISONS.some(
+    (c) => `${c.slugA}-vs-${c.slugB}` === comparison
+  );
+  if (!isCuratedCanonical) {
+    notFound();
+  }
+
   const pair = getComparisonPair(comparison);
 
   if (!pair) {

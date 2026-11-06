@@ -73,10 +73,14 @@ export default function CatBreedIdentifierPage() {
     "@graph": [
       {
         "@type": "WebApplication",
+        "@id": `${siteUrl}/cat-breed-identifier#webapp`,
         name: "CatAnalyzer AI Cat Breed Identifier",
         applicationCategory: "UtilitiesApplication",
         operatingSystem: "All",
         url: `${siteUrl}/cat-breed-identifier`,
+        provider: {
+          "@id": `${siteUrl}/#organization`,
+        },
         offers: {
           "@type": "Offer",
           price: "0",
@@ -134,7 +138,7 @@ export default function CatBreedIdentifierPage() {
           </Badge>
 
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-stone-900 leading-tight">
-            AI Cat Breed Identifier — <span className="text-brand-500">What Breed Is My Cat?</span>
+            AI Cat Breed Identifier – <span className="text-brand-500">Identify Your Cat by Photo</span>
           </h1>
 
           <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto">
